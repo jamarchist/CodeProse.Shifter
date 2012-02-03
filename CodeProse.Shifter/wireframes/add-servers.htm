@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Servers</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../content/base.css" />
+</head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#add-server").click(function () {
+                    $("#server-list").append("<li>" + $("#server-name").val() + "</li>");
+                });
+            });
+        </script>
+        <ul id="server-list">
+            <li>Ryan Gray</li>
+            <li>Sam Nissim</li>
+            <li>Rey Aso</li>
+        </ul>
+        <div>
+            <input type="text" id="server-name" />
+            <input type="button" id="add-server" value="Add Server" />
+        </div>
+    </body>
+</html>
