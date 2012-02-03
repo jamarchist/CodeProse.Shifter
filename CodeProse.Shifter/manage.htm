@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Manage Shifts</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="base.css" />
+</head>
+<body>
+    <script type="text/javascript">
+        $(function () {
+            $("#catalog li").draggable({
+                appendTo: "body",
+                helper: "clone"
+            });
+            $(".cart ol").droppable({
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover",
+                accept: ":not(.ui-sortable-helper)",
+                drop: function (event, ui) {
+                    $(this).find(".placeholder").remove();
+                    $("<li></li>").text(ui.draggable.text()).appendTo(this);
+                    // ajax call to save change
+                }
+            }).sortable({
+                items: "li:not(.placeholder)",
+                sort: function () {
+                    // gets added unintentionally by droppable interacting with sortable
+                    // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+                    $(this).removeClass("ui-state-default");
+                }
+            });
+        });
+    </script>
+    <div id="topnav">
+        <a href="view.htm">View</a> <a href="manage.htm">Manage</a>
+        <div id="user">
+            Raul Aso</div>
+    </div>
+    <div>
+        <a href="">Edit Shifts</a>
+    </div>
+    <div class="demo">
+        <div id="products">
+            <h1 class="ui-widget-header">
+                Members</h1>
+            <div id="catalog">
+                <ul>
+                    <li>Samuel Nissim</li>
+                    <li>James Gray</li>
+                    <li>Raul Aso</li>
+                    <li>Daniel Allen</li>
+                    <li>Scott Leonard</li>
+                    <li>Megan O'Gorman</li>
+                    <li>Kellie Corr</li>
+                    <li>Nicole Barth</li>
+                    <li>Eugenia Klim</li>
+                </ul>
+            </div>
+        </div>
+        <div id="shift1" class="cart">
+            <h1 class="ui-widget-header">
+                First Shift</h1>
+            <div class="ui-widget-content">
+                <ol>
+                    <li class="placeholder">Drag members here</li>
+                </ol>
+            </div>
+        </div>
+        <div id="shift2" class="cart">
+            <h1 class="ui-widget-header">
+                Second Shift</h1>
+            <div class="ui-widget-content">
+                <ol>
+                    <li class="placeholder">Drag members here</li>
+                </ol>
+            </div>
+        </div>
+        <div id="shift1" class="cart">
+            <h1 class="ui-widget-header">
+                Third Shift</h1>
+            <div class="ui-widget-content">
+                <ol>
+                    <li class="placeholder">Drag members here</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- End demo -->
+</body>
+</html>

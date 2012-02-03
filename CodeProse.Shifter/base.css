@@ -1,0 +1,46 @@
+﻿body
+{
+    margin: 0;
+}
+#calendar .fc-event
+{
+    cursor: pointer;
+}
+#user
+{
+    float: right;
+}
+#topnav
+{
+    border-bottom: solid 1px black;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+h1
+{
+    padding: .2em;
+    margin: 0;
+}
+#products
+{
+    float: left;
+    width: 250px;
+    margin-right: 2em;
+}
+.cart
+{
+    width: 200px;
+    float: left;
+    margin: 0px 10px;
+}
+/* style the list to maximize the droppable hitarea */
+.cart ol
+{
+    margin: 0;
+    padding: 1em 0 1em 3em;
+}
+#catalog li
+{
+    cursor: pointer;
+}
