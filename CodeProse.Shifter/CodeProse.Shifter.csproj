@@ -65,7 +65,7 @@
   <ItemGroup>
     <Content Include="content\base.css" />
     <None Include="views\index.cshtml" />
-    <Content Include="wireframes\add-servers.htm" />
+    <Content Include="wireframes\add-member.htm" />
     <Content Include="wireframes\default.htm" />
     <Content Include="wireframes\manage.htm" />
     <Content Include="content\fullcalendar.css" />
