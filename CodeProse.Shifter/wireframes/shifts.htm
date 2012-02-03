@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Shifts</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../content/base.css" />
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#addShift").click(function () {
+                $("#shiftList").append("<li>" + formatShiftName() + "</li>");
+            });
+        });
+
+        function formatShiftName() {
+            return $("#beginTime").val() + "-" + $("#endTime").val() + " " +
+                ($("#monday").is(":checked") ? "M" : "") +
+                ($("#tuesday").is(":checked") ? "Tu" : "") +
+                ($("#wednesday").is(":checked") ? "W" : "") +
+                ($("#thursday").is(":checked") ? "Th" : "") +
+                ($("#friday").is(":checked") ? "F" : "") +
+                ($("#saturday").is(":checked") ? "Sa" : "") +
+                ($("#sunday").is(":checked") ? "Su" : "");
+        }
+    </script>
+    <ul id="shiftList">
+        <li>9am-2pm MWF</li>
+        <li>2pm-5pm MWF</li>
+    </ul>
+    <fieldset>
+        <legend>Add New Shift</legend>
+        <div>
+            <label for="beginTime">
+                Begin Time</label>
+            <input type="text" id="beginTime" /></div>
+        <div>
+            <label for="endTime">
+                End Time</label>
+            <input type="text" id="endTime" /></div>
+        <div>
+            <label for="monday">
+                Monday</label>
+            <input type="checkbox" id="monday" checked="checked" /></div>
+        <div>
+            <label for="tuesday">
+                Tuesday</label>
+            <input type="checkbox" id="tuesday" checked="checked" /></div>
+        <div>
+            <label for="wednesday">
+                Wednesday</label>
+            <input type="checkbox" id="wednesday" checked="checked" /></div>
+        <div>
+            <label for="thursday">
+                Thursday</label>
+            <input type="checkbox" id="thursday" checked="checked" /></div>
+        <div>
+            <label for="friday">
+                Friday</label>
+            <input type="checkbox" id="friday" checked="checked" /></div>
+        <div>
+            <label for="saturday">
+                Saturday</label>
+            <input type="checkbox" id="saturday" /></div>
+        <div>
+            <label for="sunday">
+                Sunday</label>
+            <input type="checkbox" id="sunday" /></div>
+        <div>
+            <label for="beginDate">
+                Begin Date (optional)</label>
+            <input type="text" id="beginDate" /></div>
+        <div>
+            <label for="endDate">
+                End Date (optional)</label>
+            <input type="text" id="endDate" /></div>
+        <div>
+            <input type="button" id="addShift" value="Add Shift" />
+        </div>
+    </fieldset>
+</body>
+</html>
