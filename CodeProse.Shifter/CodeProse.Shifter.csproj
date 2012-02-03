@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\base.css" />
-    <Content Include="views\index.htm" />
+    <None Include="views\index.cshtml" />
     <Content Include="wireframes\default.htm" />
     <Content Include="wireframes\manage.htm" />
     <Content Include="content\fullcalendar.css" />
@@ -80,6 +80,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\IndexModel.cs" />
+    <Compile Include="modules\IndexModule.cs" />
     <Compile Include="modules\RootModule.cs" />
     <Compile Include="modules\WireframeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

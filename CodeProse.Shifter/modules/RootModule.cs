@@ -6,7 +6,7 @@ namespace CodeProse.Shifter.modules
     {
         public RootModule()
         {
-            Get["/"] = x => View["index.htm"];
+            Get["/"] = x => Response.AsRedirect(Request.Url.Path + "index.cshtml");
         }
     }
 }
