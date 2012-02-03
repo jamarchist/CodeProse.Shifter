@@ -83,7 +83,6 @@
   <ItemGroup>
     <Compile Include="models\IndexModel.cs" />
     <Compile Include="modules\IndexModule.cs" />
-    <Compile Include="modules\RootModule.cs" />
     <Compile Include="modules\WireframeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

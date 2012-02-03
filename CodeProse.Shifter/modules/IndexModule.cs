@@ -7,11 +7,14 @@ namespace CodeProse.Shifter.modules
     {
         public IndexModule()
         {
-            Get["/index.cshtml"] = x =>
-                                       {
-                                           var model = new IndexModel();
-                                           return View["index.cshtml", model];
-                                       };
+            Get["/"] = x => Index();
+            Get["/index.cshtml"] = x => Index();
+        }
+
+        private Response Index()
+        {
+            var model = new IndexModel();
+            return View["index.cshtml", model];            
         }
     }
 }
