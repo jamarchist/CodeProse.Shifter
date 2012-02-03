@@ -40,9 +40,18 @@
         $(function () {
             $("#shift").hide();
             $("#calendar").fullCalendar({
-                events: [
-                    { title: "1:00 PM", start: "Wed, 15 Feb 2012 13:00:00 CST" }
-                ],
+                events: function (start, end, callback) {
+                    var events = [];
+                    while (start < end) {
+                        events.push({
+                            title: "9am-2pm",
+                            start: start.toString()
+                        });
+
+                        start.setDate(start.getDate() + 1);
+                    }
+                    callback(events);
+                },
                 eventClick: function (event) {
                     $("#calendar").hide();
                     $("#shiftDate").text(formatShift(event.start));
