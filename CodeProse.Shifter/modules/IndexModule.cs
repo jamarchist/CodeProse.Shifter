@@ -3,18 +3,18 @@ using Nancy;
 
 namespace CodeProse.Shifter.modules
 {
-    public class IndexModule : NancyModule
+    public class IndexModule : SecureModule
     {
         public IndexModule()
         {
             Get["/"] = x => Index();
-            Get["/index.cshtml"] = x => Index();
+            Get["/index"] = x => Index();
         }
 
         private Response Index()
         {
             var model = new IndexModel();
-            return View["index.cshtml", model];            
+            return View["index", model];            
         }
     }
 }
