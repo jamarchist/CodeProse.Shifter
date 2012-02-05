@@ -17,17 +17,17 @@ namespace CodeProse.Shifter.authentication
 
         public IUserIdentity GetUserFromIdentifier(Guid identifier)
         {
-            return users.Values.First(v => v.Id == identifier);
+            return users.Values.First(v => v.Id == identifier.ToString());
         }
 
         public Guid Authenticate(string username, string password)
         {
             if (!users.ContainsKey(username))
             {
-                users.Add(username, new DemoUser { Id = Guid.NewGuid(), UserName = username });
+                users.Add(username, new DemoUser { Id = Guid.NewGuid().ToString(), UserName = username });
             }
 
-            return users[username].Id;
+            return Guid.Parse(users[username].Id);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace CodeProse.Shifter.authentication
 {
     public class DemoUser : IUserIdentity
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string UserName { get; set; }
         public IEnumerable<string> Claims { get; set; }
     }

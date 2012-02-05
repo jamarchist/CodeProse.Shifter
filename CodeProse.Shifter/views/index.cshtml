@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "layouts/base.cshtml";
+    Layout = "layouts/base.cshtml";  
 }
 
 <h1>@Model.Introduction</h1>
@@ -9,3 +9,7 @@
         <li><a href="@wireframe">@wireframe</a></li>
     }
 </ul>
+
+@section Title {
+    <title>Welcome to Shifter!</title>
+}
