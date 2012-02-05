@@ -5,6 +5,7 @@ using Nancy;
 using Nancy.Authentication.Forms;
 using DapperExtensions;
 using Dapper;
+using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.authentication
 {
@@ -16,10 +17,8 @@ namespace CodeProse.Shifter.authentication
             {
                 connection.Open();
 
-                connection.Execute("CREATE TABLE IF NOT EXISTS Users (Id NVARCHAR(20) PRIMARY KEY, Username NVARCHAR(100), Password NVARCHAR(100));");
-                connection.Execute("DELETE FROM Users;");
-                connection.Execute("INSERT INTO Users VALUES (@Id, @Username, @Password);", new { Id = Guid.NewGuid().ToString(), Username = "rgray", Password = "letsgoblues!" });
-                connection.Execute("INSERT INTO Users VALUES (@Id, @Username, @Password);", new { Id = Guid.NewGuid().ToString(), Username = "demo", Password = "demo" });
+                connection.CreateTables();
+                connection.InsertSeedData();
 
                 connection.Close();
             }

@@ -111,6 +111,9 @@
     <Compile Include="authentication\DemoUserMapper.cs" />
     <Compile Include="authentication\SqliteUserMapper.cs" />
     <Compile Include="authentication\SqliteUserRepository.cs" />
+    <Compile Include="data\DatabaseInitializationExtensions.cs" />
+    <Compile Include="data\DataSeedingExtensions.cs" />
+    <Compile Include="data\QueryExtensions.cs" />
     <Compile Include="domain\User.cs" />
     <Compile Include="models\IndexModel.cs" />
     <Compile Include="models\LoginModel.cs" />

@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.Linq;
 using CodeProse.Shifter.domain;
 using Dapper;
+using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.authentication
 {
@@ -13,7 +14,7 @@ namespace CodeProse.Shifter.authentication
             using(var connection = new SQLiteConnection("Data Source=testdb.db"))
             {
                 connection.Open();
-                var user = connection.Query<User>("SELECT * FROM Users WHERE Username = @Username AND Password = @Password LIMIT 1", new { Username = username, Password = password }).FirstOrDefault();
+                var user = connection.GetUserByUsernameAndPassword(username, password);
                 connection.Close();
 
                 return Guid.Parse(user.Id);

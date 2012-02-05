@@ -5,6 +5,7 @@ using CodeProse.Shifter.domain;
 using Dapper;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
+using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.authentication
 {
@@ -15,7 +16,7 @@ namespace CodeProse.Shifter.authentication
             using (var connection = new SQLiteConnection("Data Source=testdb.db"))
             {
                 connection.Open();
-                var user = connection.Query<User>("SELECT * FROM Users WHERE Id = @Id LIMIT 1", new {Id = identifier.ToString()}).First();
+                var user = connection.GetUserById(identifier);
                 connection.Close();
 
                 return new DemoUser {Id = user.Id, UserName = user.Username};
