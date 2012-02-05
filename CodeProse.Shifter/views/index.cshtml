@@ -1,16 +1,11 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>CodeProse Shifter Index</title>
-</head>
-    <body>
-        @Html.Partial("partials/topnav.cshtml", Model)
-        <h1>@Model.Introduction</h1>
-        <ul>
-            @foreach (var wireframe in Model.WireframePages)
-            {
-                <li><a href="@wireframe">@wireframe</a></li>
-            }
-        </ul>
-    </body>
-</html>
+﻿@{
+    Layout = "layouts/base.cshtml";
+}
+
+<h1>@Model.Introduction</h1>
+<ul>
+    @foreach (var wireframe in Model.WireframePages)
+    {
+        <li><a href="@wireframe">@wireframe</a></li>
+    }
+</ul>

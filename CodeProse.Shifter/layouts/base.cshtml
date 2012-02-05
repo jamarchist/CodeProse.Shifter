@@ -5,9 +5,7 @@
     <link rel="stylesheet" type="text/css" href="~/content/base.css" />
 </head>
 <body>
-    <div id="topnav">
-        <a href="view.htm">View</a> <a href="manage.htm">Manage</a>
-        <div id="user">Raul Aso</div>
-    </div>
+    @Html.Partial("partials/topnav.cshtml", Model)
+	@RenderBody()
 </body>
 </html>
