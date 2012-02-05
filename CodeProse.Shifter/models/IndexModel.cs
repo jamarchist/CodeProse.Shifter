@@ -19,5 +19,7 @@ namespace CodeProse.Shifter.models
                 }; 
             }
         }
+
+        public string Username { get; set; }
     }
 }

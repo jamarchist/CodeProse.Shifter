@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
+using System.Linq;
 
 namespace CodeProse.Shifter.authentication
 {
@@ -11,14 +13,21 @@ namespace CodeProse.Shifter.authentication
 
     public class DemoUserMapper : IUserMapper, IUserRepository
     {
-        public IUserIdentity GetUserFromIdentifier(Guid indentifier)
+        private static readonly IDictionary<string, DemoUser> users = new Dictionary<string, DemoUser>(); 
+
+        public IUserIdentity GetUserFromIdentifier(Guid identifier)
         {
-            return new DemoUser{ UserName = "demo"};
+            return users.Values.First(v => v.Id == identifier);
         }
 
         public Guid Authenticate(string username, string password)
         {
-            return Guid.NewGuid();
+            if (!users.ContainsKey(username))
+            {
+                users.Add(username, new DemoUser { Id = Guid.NewGuid(), UserName = username });
+            }
+
+            return users[username].Id;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace CodeProse.Shifter.modules
         private Response Index()
         {
             var model = new IndexModel();
+            model.Username = Context.CurrentUser.UserName;
             return View["index", model];            
         }
     }

@@ -3,13 +3,14 @@
 <head>
     <title>CodeProse Shifter Index</title>
 </head>
-<body>
-    <h1>@Model.Introduction</h1>
-    <ul>
-        @foreach (var wireframe in Model.WireframePages)
-        {
-            <li><a href="@wireframe">@wireframe</a></li>
-        }
-    </ul>
-</body>
+    <body>
+        @Html.Partial("partials/topnav.cshtml", Model)
+        <h1>@Model.Introduction</h1>
+        <ul>
+            @foreach (var wireframe in Model.WireframePages)
+            {
+                <li><a href="@wireframe">@wireframe</a></li>
+            }
+        </ul>
+    </body>
 </html>

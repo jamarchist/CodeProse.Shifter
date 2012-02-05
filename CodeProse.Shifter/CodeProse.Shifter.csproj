@@ -67,6 +67,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\base.css" />
+    <None Include="layouts\base.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="partials\topnav.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="views\index.cshtml" />
     <Content Include="views\login.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
