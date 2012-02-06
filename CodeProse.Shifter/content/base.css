@@ -77,3 +77,6 @@ h1
 li.user {
     background-color: #CCC;
 }
+.stacked > * {
+    display: block;
+}

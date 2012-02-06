@@ -5,7 +5,7 @@ namespace CodeProse.Shifter.modules
     /// <summary>
     /// So we can actually navigate to the wireframes through the web app
     /// </summary>
-    public class WireframeModule : NancyModule
+    public class WireframeModule : SecureModule
     {
         public WireframeModule() : base("/wireframes")
         {
