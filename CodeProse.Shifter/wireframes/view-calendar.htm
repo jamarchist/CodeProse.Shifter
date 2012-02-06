@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>View Shifts</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../content/topnav.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../content/fullcalendar.css" />
+    <link rel="stylesheet" type="text/css" href="../content/base.css" />
+    <script type="text/javascript" src="../content/fullcalendar.min.js"></script>
+    <script type="text/javascript">
+        function formatTime(date) {
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var add = "";
+
+            if (min <= 9) {
+                min = "0" + min;
+            }
+            if (hour > 12) {
+                hour = hour - 12;
+                add = " PM";
+            } else {
+                add = " AM";
+            }
+            if (hour == 12) {
+                add = " PM";
+            }
+            if (hour == 00) {
+                hour = "12";
+            }
+
+            return hour + ":" + min + add;
+        }
+
+        function formatShift(date) {
+            return $.datepicker.formatDate("m/d/yy", date) + " " + formatTime(date);
+        }
+
+        $(function () {
+            $("#shift").hide();
+            $("#calendar").fullCalendar({
+                events: function (start, end, callback) {
+                    var events = [];
+                    
+                    var shift = {
+                        date: start,
+                        time: "9am-2pm"
+                    }; // get from service
+                    
+                    while (start < end) {
+                        events.push({
+                            title: shift.time,
+                            start: shift.date.toString(),
+                            url: "view-shift.htm?d=" + (shift.date.getMonth() + 1) + "-" + shift.date.getDate() + "-" + (shift.date.getYear() + 1900) + "&s=" + shift.time
+                        });
+
+                        start.setDate(start.getDate() + 1);
+                    }
+                    callback(events);
+                },
+                height: 600
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="calendar" style="width: 80%; margin: 0 auto">
+    </div>
+</body>
+</html>

@@ -4,6 +4,8 @@
     <title>Manage Shifts</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../content/topnav.js"></script>
+
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="../content/base.css" />
 </head>
@@ -11,10 +13,13 @@
     <script type="text/javascript">
         $(function () {
             $("#catalog li").draggable({
-                appendTo: "body",
+                //appendTo: "body",
                 helper: "clone"
+//                start: function (event, ui) {
+//                    $(event.currentTarget).hide();
+//                }
             });
-            $(".cart ol").droppable({
+            $(".cart ul").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover",
                 accept: ":not(.ui-sortable-helper)",
@@ -33,14 +38,9 @@
             });
         });
     </script>
-    <div id="topnav">
-        <a href="view.htm">View</a> <a href="manage.htm">Manage</a>
-        <div id="user">
-            Raul Aso</div>
-    </div>
-    <div>
-        <a href="shifts.htm">Edit Shifts</a>
-        <a href="members.htm">Edit Members</a>
+    <div style="margin-bottom: 20px">
+        <a href="manage-shifts.htm">Manage Shifts</a>
+        <a href="manage-members.htm">Manage Members</a>
     </div>
     <div class="demo">
         <div id="products">
@@ -60,31 +60,31 @@
                 </ul>
             </div>
         </div>
-        <div id="shift1" class="cart">
+        <div id="shift1" class="cart cart-float">
             <h1 class="ui-widget-header">
-                First Shift</h1>
+                11am-2pm</h1>
             <div class="ui-widget-content">
-                <ol>
+                <ul>
                     <li class="placeholder">Drag members here</li>
-                </ol>
+                </ul>
             </div>
         </div>
-        <div id="shift2" class="cart">
+        <div id="shift2" class="cart cart-float">
             <h1 class="ui-widget-header">
-                Second Shift</h1>
+                2pm-5pm</h1>
             <div class="ui-widget-content">
-                <ol>
+                <ul>
                     <li class="placeholder">Drag members here</li>
-                </ol>
+                </ul>
             </div>
         </div>
-        <div id="shift1" class="cart">
+        <div id="shift1" class="cart cart-float">
             <h1 class="ui-widget-header">
-                Third Shift</h1>
+                5pm-8pm</h1>
             <div class="ui-widget-content">
-                <ol>
+                <ul>
                     <li class="placeholder">Drag members here</li>
-                </ol>
+                </ul>
             </div>
         </div>
     </div>

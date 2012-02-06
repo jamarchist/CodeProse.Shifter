@@ -65,12 +65,13 @@
   <ItemGroup>
     <Content Include="content\base.css" />
     <None Include="views\index.cshtml" />
-    <Content Include="wireframes\add-members.htm" />
+    <Content Include="wireframes\members.htm" />
     <Content Include="wireframes\default.htm" />
     <Content Include="wireframes\manage.htm" />
     <Content Include="content\fullcalendar.css" />
     <Content Include="content\fullcalendar.js" />
     <Content Include="content\fullcalendar.min.js" />
+    <Content Include="wireframes\shifts.htm" />
     <Content Include="wireframes\view.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
