@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\base.css" />
+    <Content Include="content\themeroller-icon-set-vector-32px.png" />
     <Content Include="content\topnav.js" />
     <Content Include="wireframes\manage-shifts.htm" />
     <Content Include="wireframes\view-calendar.htm" />
