@@ -81,6 +81,7 @@
     <Content Include="content\base.css" />
     <Content Include="content\themeroller-icon-set-vector-32px.png" />
     <Content Include="content\topnav.js" />
+    <Content Include="wireframes\assign-shifts.htm" />
     <Content Include="wireframes\manage-shifts.htm" />
     <Content Include="wireframes\view-calendar.htm" />
     <Content Include="wireframes\view-shift.htm" />
@@ -97,7 +98,6 @@
     </Content>
     <Content Include="wireframes\default.htm" />
     <Content Include="wireframes\manage-members.htm" />
-    <Content Include="wireframes\manage.htm" />
     <Content Include="content\fullcalendar.css" />
     <Content Include="content\fullcalendar.js" />
     <Content Include="content\fullcalendar.min.js" />
