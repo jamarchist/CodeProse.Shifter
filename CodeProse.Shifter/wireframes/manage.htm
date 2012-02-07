@@ -5,7 +5,6 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../content/topnav.js"></script>
-
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="../content/base.css" />
 </head>
@@ -15,17 +14,36 @@
             $("#catalog li").draggable({
                 //appendTo: "body",
                 helper: "clone"
-//                start: function (event, ui) {
-//                    $(event.currentTarget).hide();
-//                }
+                //                start: function (event, ui) {
+                //                    $(event.currentTarget).hide();
+                //                }
             });
             $(".cart ul").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover",
                 accept: ":not(.ui-sortable-helper)",
                 drop: function (event, ui) {
-                    $(this).find(".placeholder").remove();
-                    $("<li></li>").text(ui.draggable.text()).appendTo(this);
+                    //$(this).find(".placeholder").remove();
+                    $('<li></li>').text(ui.draggable.text())
+                        .append($("<button>Remove From Shift</button>").button({
+                            icons: { primary: "ui-icon-closethick" },
+                            text: false
+                        }).css({
+                            "float": "right",
+                            "width": "22px",
+                            "height": "22px"
+                        }).click(function () {
+                            if (confirm("Are you sure you want to remove " + ui.draggable.text() + " from this shift?")) {
+                                $(this).parent().remove();
+                            }
+                        }).hide())
+                    .hover(function () {
+                        $(this).children("button").show();
+                    },
+                    function () {
+                        $(this).children("button").hide();
+                    })
+                        .appendTo(this);
                     // ajax call to save change
                 }
             }).sortable({
@@ -39,7 +57,7 @@
         });
     </script>
     <div style="margin-bottom: 20px">
-        <a href="manage-shifts.htm">Manage Shifts</a>
+        <a href="manage-shifts.htm">Manage Shifts</a> <a href="manage-members.htm">Manage Members</a>
         <a href="manage-members">Manage Members</a>
     </div>
     <div class="demo">
