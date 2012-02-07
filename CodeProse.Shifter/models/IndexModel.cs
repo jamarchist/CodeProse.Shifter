@@ -13,7 +13,7 @@ namespace CodeProse.Shifter.models
                 return new List<string> 
                 {
                     "wireframes/default", 
-                    "wireframes/manage",
+                    "wireframes/assign-shifts",
                     "wireframes/view-calendar"
                 }; 
             }
