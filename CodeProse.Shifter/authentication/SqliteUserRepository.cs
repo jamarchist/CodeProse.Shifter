@@ -1,8 +1,5 @@
 using System;
 using System.Data.SQLite;
-using System.Linq;
-using CodeProse.Shifter.domain;
-using Dapper;
 using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.authentication

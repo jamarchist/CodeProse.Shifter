@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "layouts/base.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        CodeProse.Shifter.Data.getMembers(function (data) {
+			for (var i = 0; i < data.length; i++) {
+			    var currentMember = data[i];
+			    $("#member-list").append("<li>" + currentMember.FirstName + " " + currentMember.LastName + "</li>");
+			}    
+        });
+        
+        $("#add-member").click(function () {
+            var newMember = {
+              FirstName: $("input[name*='first-name']").first().val(),
+              LastName: $("input[name*='last-name']").first().val(),
+              Email: $("input[name*='email']").first().val(),
+              UserName: $("input[name*='username']").first().val()
+            };
+
+            CodeProse.Shifter.Data.addMember(newMember);
+
+            $("#member-list").append("<li>" + newMember.FirstName + " " + newMember.LastName + "</li>");
+        });
+    });
+</script>
+<ul id="member-list">
+
+</ul>
+<div class="stacked">
+    <label for="username">Username</label>
+    <input type="text" name="username" />
+    <label for="first-name">First Name</label>
+    <input type="text" name="first-name" />
+    <label for="last-name">Last Name</label>
+    <input type="text" name="last-name" />
+    <label for="email">Email</label>
+    <input type="text" name="email" />
+    <input type="button" id="add-member" value="Add member" />
+</div>
+
+@section Title {
+    <title>Manage Members</title>
+}

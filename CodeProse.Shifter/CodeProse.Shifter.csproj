@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\base.css" />
+    <Content Include="content\data-service.js" />
     <Content Include="content\topnav.js" />
     <Content Include="wireframes\manage-shifts.htm" />
     <Content Include="wireframes\view-calendar.htm" />
@@ -95,7 +96,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="wireframes\default.htm" />
-    <Content Include="wireframes\manage-members.htm" />
+    <None Include="wireframes\manage-members.cshtml" />
     <Content Include="wireframes\manage.htm" />
     <Content Include="content\fullcalendar.css" />
     <Content Include="content\fullcalendar.js" />
@@ -110,16 +111,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="authentication\BootStrapper.cs" />
-    <Compile Include="authentication\DemoUser.cs" />
-    <Compile Include="authentication\DemoUserMapper.cs" />
+    <Compile Include="authentication\IUserRepository.cs" />
     <Compile Include="authentication\SqliteUserMapper.cs" />
     <Compile Include="authentication\SqliteUserRepository.cs" />
     <Compile Include="data\DatabaseInitializationExtensions.cs" />
     <Compile Include="data\DataSeedingExtensions.cs" />
+    <Compile Include="data\IDatabase.cs" />
     <Compile Include="data\QueryExtensions.cs" />
     <Compile Include="domain\User.cs" />
     <Compile Include="models\IndexModel.cs" />
     <Compile Include="models\LoginModel.cs" />
+    <Compile Include="modules\MembersDataModule.cs" />
     <Compile Include="modules\LoginModule.cs" />
     <Compile Include="modules\IndexModule.cs" />
     <Compile Include="modules\SecureModule.cs" />

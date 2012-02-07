@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.IO;
 using Dapper;
 
 namespace CodeProse.Shifter.data
@@ -7,8 +8,24 @@ namespace CodeProse.Shifter.data
     {
         public static void CreateTables(this IDbConnection connection)
         {
-            connection.Execute("CREATE TABLE IF NOT EXISTS Users (Id NVARCHAR(20) PRIMARY KEY, Username NVARCHAR(100), Password NVARCHAR(100));");
-            //connection.Execute("CREATE TABLE IF NOT EXISTS Members (Id NVARCHAR(2) PRIMARY KEY, UserId NVARCHAR(20));");
+            connection.Execute(@"
+CREATE TABLE IF NOT EXISTS Users 
+(
+    Id NVARCHAR(20) PRIMARY KEY, 
+    UserName NVARCHAR(100), 
+    Password NVARCHAR(100),
+    FirstName NVARCHAR(100),
+    LastName NVARCHAR(100),
+    Email NVARCHAR(100)
+);");
+        }
+
+        public static void DropAndRecreateDatabase(string databaseName)
+        {
+            if (File.Exists(databaseName))
+            {
+                File.Delete(databaseName);
+            }
         }
     }
 }

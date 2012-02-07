@@ -19,7 +19,7 @@ namespace CodeProse.Shifter.authentication
                 var user = connection.GetUserById(identifier);
                 connection.Close();
 
-                return new DemoUser {Id = user.Id, UserName = user.Username};
+                return user;
             }
         }
     }

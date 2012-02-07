@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using CodeProse.Shifter.models;
+using Nancy;
 
 namespace CodeProse.Shifter.modules
 {
@@ -9,7 +10,7 @@ namespace CodeProse.Shifter.modules
     {
         public WireframeModule() : base("/wireframes")
         {
-            Get["/{page}"] = x => View["wireframes/" + x.page.ToString()];
+            Get["/{page}"] = x => View["wireframes/" + x.page.ToString(), new IndexModel { UserName = Context.CurrentUser.UserName}];
         }
     }
 }
