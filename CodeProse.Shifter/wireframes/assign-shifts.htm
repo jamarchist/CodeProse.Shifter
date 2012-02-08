@@ -4,6 +4,7 @@
     <title>Manage Shifts</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../content/jquery.deletebutton.js"></script>
     <script type="text/javascript" src="../content/topnav.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />-->
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/sunny/jquery-ui.css" />
@@ -26,24 +27,10 @@
                 drop: function (event, ui) {
                     //$(this).find(".placeholder").remove();
                     $('<li></li>').text(ui.draggable.text())
-                        .append($("<button>Remove From Shift</button>").button({
-                            icons: { primary: "ui-icon-closethick" },
-                            text: false
-                        }).css({
-                            "float": "right",
-                            "width": "22px",
-                            "height": "22px"
-                        }).click(function () {
-                            if (confirm("Are you sure you want to remove " + ui.draggable.text() + " from this shift?")) {
-                                $(this).parent().remove();
-                            }
-                        }).hide())
-                        .hover(function () {
-                            $(this).children("button").show();
-                        },
-                            function () {
-                                $(this).children("button").hide();
-                            })
+                        .deletebutton({
+                            confirm: "Are you sure you want to remove " + ui.draggable.text() + " from this shift?",
+                            label: "Remove from shift"
+                        })
                         .appendTo(this);
                     // ajax call to save change
                 }
@@ -58,9 +45,6 @@
         });
     </script>
     <div id="content" class="ui-widget-content">
-        <div style="margin-bottom: 20px">
-            <a href="manage-shifts">Manage Shifts</a> <a href="manage-members">Manage Members</a>
-        </div>
         <div id="products">
             <h1 class="ui-widget-header">
                 Members</h1>
@@ -105,7 +89,16 @@
                 </ul>
             </div>
         </div>
-        <div style="clear: both;"></div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <h2>
+                Actions</h2>
+            <ul>
+                <li><a href="manage-shifts">Manage Shifts</a></li>
+                <li><a href="manage-members">Manage Members</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

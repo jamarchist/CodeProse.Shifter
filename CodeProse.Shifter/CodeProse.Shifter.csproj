@@ -80,6 +80,7 @@
   <ItemGroup>
     <Content Include="content\base.css" />
     <Content Include="content\data-service.js" />
+    <Content Include="content\jquery.deletebutton.js" />
     <Content Include="content\themeroller-icon-set-vector-32px.png" />
     <Content Include="content\topnav.js" />
     <Content Include="wireframes\assign-shifts.htm" />
