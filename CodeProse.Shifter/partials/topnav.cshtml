@@ -1,4 +1,8 @@
 ﻿<div id="topnav">
-    <a href="wireframes/view">View</a> <a href="wireframes/manage">Manage</a>
+    <a href="@Url.Content("~/index")">Home</a>
+    <a href="@Url.Content("~/wireframes/view-calendar")">Calendar</a>
+    <a href="@Url.Content("~/wireframes/manage-shifts")">Shifts</a>
+    <a href="@Url.Content("~/wireframes/manage-members")">Members</a>
+    <a href="@Url.Content("~/wireframes/assign-shifts")">Schedule</a>
     <div id="user">@Model.UserName</div>
 </div>

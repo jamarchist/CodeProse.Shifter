@@ -89,6 +89,7 @@
     <None Include="layouts\base.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="partials\news-feed.cshtml" />
     <None Include="partials\topnav.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
