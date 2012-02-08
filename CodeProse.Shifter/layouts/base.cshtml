@@ -12,6 +12,11 @@
     </head>
     <body>
         @Html.Partial("partials/topnav.cshtml", Model)
-        @RenderBody()
+        <div id="content">
+            @RenderBody()
+        </div>
+        <script type="text/javascript">
+            $("input[type=button]").button();
+        </script>
     </body>
 </html>

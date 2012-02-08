@@ -16,6 +16,8 @@
             $("#addShift").click(function () {
                 $("#shiftList").append("<li>" + formatShiftName() + "</li>");
             });
+            
+            $("input[type=button]").button();
         });
 
         function formatShiftName() {

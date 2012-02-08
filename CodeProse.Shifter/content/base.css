@@ -9,6 +9,9 @@ h1
     padding: .2em;
     margin: 0;
 }
+h2 {
+    margin: 0;
+}
 #calendar .fc-event
 {
     cursor: pointer;
@@ -47,7 +50,7 @@ h1
     width: 250px;
     float: left;
 }
-.cart h1
+.cart .ui-widget-header
 {
     border: none;
     border-radius: 10px 10px 0px 0px;
