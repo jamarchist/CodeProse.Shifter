@@ -19,11 +19,14 @@ h1
 }
 #topnav
 {
-    border-bottom: solid 1px black;
-    margin-bottom: 10px;
-    padding: 3px;
+    padding: 0.7em;
 }
-#news-feed li {
+#content
+{
+    padding-top: 2em;
+}
+#news-feed li
+{
     margin: 10px 0px;
 }
 #products
@@ -76,14 +79,16 @@ h1
     width: 180px;
     background-color: #FFF;
 }
-li.user {
+li.user
+{
     background-color: #CCC;
 }
-.stacked > * {
+.stacked > *
+{
     display: block;
 }
 
-.ui-icon32-close 
+.ui-icon32-close
 {
     background: url(themeroller-icon-set-vector-32px.png) 32px 0 !important;
     width: 32px;
