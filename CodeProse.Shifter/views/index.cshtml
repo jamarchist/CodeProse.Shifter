@@ -3,12 +3,7 @@
 }
 
 <h1>@Model.Introduction</h1>
-<ul>
-    @foreach (var wireframe in Model.WireframePages)
-    {
-        <li><a href="@wireframe">@wireframe</a></li>
-    }
-</ul>
+@Html.Partial("partials/news-feed.cshtml")
 
 @section Title {
     <title>Welcome to Shifter!</title>

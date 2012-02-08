@@ -19,7 +19,7 @@ namespace CodeProse.Shifter.data
             return connection.Query<User>("SELECT * FROM Users WHERE Id = @Id LIMIT 1", new { Id = identifier.ToString() }).First();
         }
 
-        public static void AddUser(this IDatabase database, User newUser)
+        public static void AddNewUser(this IDatabase database, User newUser)
         {
             database.Connection.Execute(
                 "INSERT INTO Users VALUES (@Id, @UserName, @Password, @FirstName, @LastName, @Email)", newUser);

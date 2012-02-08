@@ -1,6 +1,8 @@
 ﻿<div id="topnav" class="ui-widget-header">
-    <a href="default">Home</a> <a href="view-calendar">View</a> <a href="assign-shifts">
-        Manage</a>
-    <div id="user">
-        @Model.UserName</div>
+    <a href="@Url.Content("~/index")">Home</a>
+    <a href="@Url.Content("~/wireframes/view-calendar")">Calendar</a>
+    <a href="@Url.Content("~/wireframes/manage-shifts")">Shifts</a>
+    <a href="@Url.Content("~/wireframes/manage-members")">Members</a>
+    <a href="@Url.Content("~/wireframes/assign-shifts")">Schedule</a>
+    <div id="user">@Model.UserName</div>
 </div>
