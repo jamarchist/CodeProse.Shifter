@@ -8,13 +8,37 @@
     <!--<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />-->
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/sunny/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="../content/base.css" />
+    <script type="text/javascript">
+        $(function () {
+            $("#trade-shift-dialog").dialog({
+                autoOpen: false,
+                width: 700,
+                height: 500,
+                modal: true,
+                buttons: {
+                    "Submit": function () {
+
+                    },
+                    "Cancel": function () {
+                        $("#trade-shift-dialog").dialog("close");
+                    }
+                }
+            });
+            $("#trade-shift").button().click(function () {
+                $("#trade-shift-dialog").dialog("open");
+            });
+            $("#abandon-shift").button().click(function () {
+                confirm("Are you sure you want to give up this shift? It will still be yours until someone else picks it up.");
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="content">
         <div id="shift" class="cart">
-            <h1 class="ui-widget-header">
+            <h2 class="ui-widget-header">
                 <span id="shiftDate">2/15 9am-2pm</span>
-            </h1>
+            </h2>
             <div class="ui-widget-content">
                 <ul>
                     <li>James Gray</li>
@@ -26,13 +50,41 @@
             </div>
         </div>
         <div>
-            <h2>
+            <h2 class="ui-widget-header">
                 Actions</h2>
-            <ul>
-                <li><a href="">Trade for a different shift</a></li>
-                <li><a href="">Give up this shift</a></li>
-            </ul>
+            <div class="ui-widget-content">
+                <button id="trade-shift">
+                    Trade for a different shift</button>
+                <button id="abandon-shift">
+                    Give up this shift</button>
+            </div>
         </div>
+    </div>
+    <div id="trade-shift-dialog" title="Trade Shifts">
+        <p>
+            I'd like to trade my shift for one of the following (please select):</p>
+        <form>
+        <fieldset>
+            <div class="clickable">
+                <input type="checkbox" value="shift1" id="trade-shift1" />
+                <label for="trade-shift1">
+                    MWF 9am-2pm</label>
+            </div>
+            <div class="clickable">
+                <input type="checkbox" value="shift2" id="trade-shift2" />
+                <label for="trade-shift2">
+                    TR 9am-2pm</label>
+            </div>
+            <div class="clickable">
+                <input type="checkbox" value="shift3" id="trade-shift3" />
+                <label for="trade-shift3">
+                    MWF 2pm-5pm</label>
+            </div>
+        </fieldset>
+        </form>
+        <p>
+            Note: You will still keep your shift until someone from one of the shifts selected
+            above accepts your trade.</p>
     </div>
 </body>
 </html>

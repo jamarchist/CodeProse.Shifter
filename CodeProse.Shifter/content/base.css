@@ -9,7 +9,8 @@ h1
     padding: .2em;
     margin: 0;
 }
-h2 {
+h2
+{
     margin: 0;
 }
 #calendar .fc-event
@@ -90,10 +91,13 @@ li.user
 {
     display: block;
 }
-
 .ui-icon32-close
 {
     background: url(themeroller-icon-set-vector-32px.png) 32px 0 !important;
     width: 32px;
     height: 32px;
+}
+.clickable, .clickable label, .clickable input
+{
+    cursor: pointer;
 }
