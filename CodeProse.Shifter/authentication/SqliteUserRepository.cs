@@ -1,5 +1,4 @@
 using System;
-using System.Data.SQLite;
 using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.authentication
@@ -8,12 +7,9 @@ namespace CodeProse.Shifter.authentication
     {
         public Guid Authenticate(string username, string password)
         {
-            using(var connection = new SQLiteConnection("Data Source=testdb.db"))
+            using (var database = new Database())
             {
-                connection.Open();
-                var user = connection.GetUserByUsernameAndPassword(username, password);
-                connection.Close();
-
+                var user = database.Users.GetUserByUsernameAndPassword(username, password);
                 return Guid.Parse(user.Id);
             }
         }

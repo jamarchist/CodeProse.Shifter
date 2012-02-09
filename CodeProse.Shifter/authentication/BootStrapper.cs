@@ -1,4 +1,5 @@
 ﻿using System.Data.SQLite;
+using DapperExtensions.Mapper;
 using Nancy;
 using Nancy.Authentication.Forms;
 using CodeProse.Shifter.data;
@@ -9,6 +10,7 @@ namespace CodeProse.Shifter.authentication
     {
         protected override void ConfigureApplicationContainer(TinyIoC.TinyIoCContainer container)
         {
+            DapperExtensions.DapperExtensions.DefaultMapper = typeof (PluralizedAutoClassMapper<>);
             DatabaseInitializationExtensions.DropAndRecreateDatabase("testdb.db");
             using (var connection = new SQLiteConnection("Data Source=testdb.db"))
             {

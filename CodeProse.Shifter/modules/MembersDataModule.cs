@@ -13,20 +13,20 @@ namespace CodeProse.Shifter.modules
             Post["/"] = x =>
             {
                 var newMember = this.Bind<User>();
-                database.AddNewUser(newMember);
+                database.Users.AddNewUser(newMember);
                 return HttpStatusCode.Accepted;
             };
 
             Get["/"] = x =>
             {
-                var members = database.ListAllUsers();
+                var members = database.Users.ListAllUsers();
                 return Response.AsJson(members);
             };
 
             Get[@"/(?<firstname>[\w]{1,20})(?<dash>[\-]{1})(?<lastname>[\w]{1,20})"] = x =>
             {
                 var member =
-                    database.ListAllUsers().Where(
+                    database.Users.ListAllUsers().Where(
                         m => m.FirstName == x.firstname && m.LastName == x.lastname).FirstOrDefault();
                 
                 if (member != null)

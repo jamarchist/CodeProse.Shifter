@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,27 +7,34 @@ using Dapper;
 
 namespace CodeProse.Shifter.data
 {
-    public static class QueryExtensions
+    public class UserQueries
     {
-        public static User GetUserByUsernameAndPassword(this IDbConnection connection, string username, string password)
+        private readonly IDbConnection connection;
+
+        public UserQueries(IDbConnection connection)
+        {
+            this.connection = connection;
+        }
+
+        public virtual User GetUserByUsernameAndPassword(string username, string password)
         {
             return connection.Query<User>("SELECT * FROM Users WHERE Username = @Username AND Password = @Password LIMIT 1", new { Username = username, Password = password }).FirstOrDefault();
         }
 
-        public static User GetUserById(this IDbConnection connection, Guid identifier)
+        public virtual User GetUserById(Guid identifier)
         {
             return connection.Query<User>("SELECT * FROM Users WHERE Id = @Id LIMIT 1", new { Id = identifier.ToString() }).First();
         }
 
-        public static void AddNewUser(this IDatabase database, User newUser)
+        public virtual void AddNewUser(User newUser)
         {
-            database.Connection.Execute(
+            connection.Execute(
                 "INSERT INTO Users VALUES (@Id, @UserName, @Password, @FirstName, @LastName, @Email)", newUser);
         }
 
-        public static IList<User> ListAllUsers(this IDatabase database)
+        public virtual IList<User> ListAllUsers()
         {
-            return database.Connection.Query<User>("SELECT * FROM Users").ToList();
+            return connection.Query<User>("SELECT * FROM Users").ToList();
         }
     }
 }
