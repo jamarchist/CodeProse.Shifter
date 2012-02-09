@@ -117,10 +117,12 @@
     <Compile Include="authentication\IUserRepository.cs" />
     <Compile Include="authentication\SqliteUserMapper.cs" />
     <Compile Include="authentication\SqliteUserRepository.cs" />
+    <Compile Include="data\Database.cs" />
     <Compile Include="data\DatabaseInitializationExtensions.cs" />
     <Compile Include="data\DataSeedingExtensions.cs" />
     <Compile Include="data\IDatabase.cs" />
-    <Compile Include="data\QueryExtensions.cs" />
+    <Compile Include="data\ConnectionExtensions.cs" />
+    <Compile Include="data\UserQueries.cs" />
     <Compile Include="domain\User.cs" />
     <Compile Include="models\IndexModel.cs" />
     <Compile Include="models\LoginModel.cs" />

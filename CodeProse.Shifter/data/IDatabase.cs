@@ -1,28 +1,11 @@
-﻿using System.Data;
-using System.Data.SQLite;
+﻿using System;
+using System.Data;
 
 namespace CodeProse.Shifter.data
 {
-    public interface IDatabase
+    public interface IDatabase : IDisposable
     {
         IDbConnection Connection { get; }
-    }
-
-    public class Database : IDatabase
-    {
-        private readonly IDbConnection connection = new SQLiteConnection("Data Source=testdb.db");
-
-        public Database()
-        {
-            connection.Open();
-        }
-
-        public IDbConnection Connection
-        {
-            get
-            {
-                return connection;
-            }
-        }
+        UserQueries Users { get; }
     }
 }
