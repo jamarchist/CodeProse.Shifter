@@ -24,18 +24,38 @@
                     }
                 }
             });
+            $("#accept-trade-dialog").dialog({
+                autoOpen: false,
+                width: 700,
+                height: 500,
+                modal: true,
+                buttons: {
+                    "Submit": function () {
+
+                    },
+                    "Cancel": function () {
+                        $("#accept-trade-dialog").dialog("close");
+                    }
+                }
+            });
             $("#trade-shift").button().click(function () {
                 $("#trade-shift-dialog").dialog("open");
             });
             $("#abandon-shift").button().click(function () {
                 confirm("Are you sure you want to give up this shift? It will still be yours until someone else picks it up.");
             });
+            $("#join-shift").button().click(function () {
+                confirm("Are you sure you want to join this shift?");
+            });
+            $("#accept-trade").button().click(function () {
+                $("#accept-trade-dialog").dialog("open");
+            });
         });
     </script>
 </head>
 <body>
     <div id="content">
-        <div id="shift" class="cart">
+        <div id="shift" class="cart ui-widget">
             <h2 class="ui-widget-header">
                 <span id="shiftDate">2/15 9am-2pm</span>
             </h2>
@@ -49,7 +69,7 @@
                 </ul>
             </div>
         </div>
-        <div>
+        <div class="ui-widget">
             <h2 class="ui-widget-header">
                 Actions</h2>
             <div class="ui-widget-content">
@@ -57,6 +77,19 @@
                     Trade for a different shift</button>
                 <button id="abandon-shift">
                     Give up this shift</button>
+                <button id="join-shift">
+                    Join this shift</button>
+            </div>
+        </div>
+        <div class="ui-widget">
+            <h2 class="ui-widget-header">
+                Trades</h2>
+            <div class="ui-widget-content">
+                <ul id="trades">
+                    <li>Raul Aso will trade this shift for MW 9am-2pm or MW 2pm-5pm
+                        <button id="accept-trade">
+                            Accept trade</button></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -85,6 +118,26 @@
         <p>
             Note: You will still keep your shift until someone from one of the shifts selected
             above accepts your trade.</p>
+    </div>
+    <div id="accept-trade-dialog" title="Accept Trade">
+        <p>
+            Which shift would you like to trade for this one?</p>
+        <form>
+        <fieldset>
+            <div class="clickable">
+                <input type="radio" id="accept-trade1" value="shift4" name="shift-to-trade" />
+                <label for="accept-trade1">
+                    MW 9am-2pm</label>
+            </div>
+            <div class="clickable">
+                <input type="radio" id="accept-trade2" value="shift5" name="shift-to-trade" />
+                <label for="accept-trade2">
+                    TR 9am-2pm</label>
+            </div>
+        </fieldset>
+        </form>
+        <p>
+            Warning: This trade is final.</p>
     </div>
 </body>
 </html>
