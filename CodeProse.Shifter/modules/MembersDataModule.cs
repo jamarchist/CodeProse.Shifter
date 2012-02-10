@@ -36,6 +36,20 @@ namespace CodeProse.Shifter.modules
 
                 return HttpStatusCode.NotFound;
             };
+
+            Delete[@"/(?<firstname>[\w]{1,20})(?<dash>[\-]{1})(?<lastname>[\w]{1,20})"] = x =>
+            {
+                var member =
+                    database.Users.ListAllUsers().Where(
+                        m => m.FirstName == x.firstname && m.LastName == x.lastname).FirstOrDefault();
+
+                if (member != null)
+                {
+                    database.Users.DeleteUser(member.Id);
+                }
+                
+                return HttpStatusCode.Accepted;
+            };
         }
     }
 }

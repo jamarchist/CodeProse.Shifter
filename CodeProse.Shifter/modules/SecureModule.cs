@@ -1,9 +1,8 @@
-using Nancy;
 using Nancy.Security;
 
 namespace CodeProse.Shifter.modules
 {
-    public class SecureModule : NancyModule
+    public class SecureModule : ShifterModule
     {
         public SecureModule()
         {

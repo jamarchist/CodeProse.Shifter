@@ -24,8 +24,21 @@ CodeProse.Shifter.Data.getMembers = function(onSuccess) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: onSuccess,
-        error: function (msg) {
+        error: function(msg) {
             console.log(msg);
         }
-    });    
-}
+    });
+};
+
+CodeProse.Shifter.Data.deleteMember = function(identifier, onSuccess) {
+    $.ajax({
+        type: "DELETE",
+        url: "/shifter/members/" + identifier,
+        data: "{}",
+        contentType: "application/json; charset=utf-8",
+        success: onSuccess,
+        error: function(msg) {
+            console.log(msg);
+        }
+    });
+};

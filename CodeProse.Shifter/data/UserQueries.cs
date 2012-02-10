@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using CodeProse.Shifter.domain;
 using Dapper;
+using DapperExtensions;
 
 namespace CodeProse.Shifter.data
 {
@@ -35,6 +36,11 @@ namespace CodeProse.Shifter.data
         public virtual IList<User> ListAllUsers()
         {
             return connection.Query<User>("SELECT * FROM Users").ToList();
+        }
+
+        public virtual void DeleteUser(string identifier)
+        {
+            connection.Execute("DELETE FROM Users WHERE Id = @Id", new {Id = identifier});
         }
     }
 }
