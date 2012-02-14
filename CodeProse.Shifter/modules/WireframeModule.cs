@@ -10,7 +10,7 @@ namespace CodeProse.Shifter.modules
     {
         public WireframeModule() : base("/wireframes")
         {
-            Get["/{page}"] = x => View["wireframes/" + x.page.ToString(), new IndexModel { UserName = Context.CurrentUser.UserName}];
+            Get["/{page}"] = x => View["wireframes/" + x.page.ToString(), new HomeModel { UserName = Context.CurrentUser.UserName}];
         }
     }
 }

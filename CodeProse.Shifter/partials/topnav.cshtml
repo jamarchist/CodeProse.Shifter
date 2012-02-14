@@ -1,8 +1,8 @@
 ﻿<div id="topnav" class="ui-widget-header">
-    <a href="@Url.Content("~/index")">Home</a>
+    <a href="@Url.Content("~/home")">Home</a>
     <a href="@Url.Content("~/views/calendar")">Calendar</a>
     <a href="@Url.Content("~/wireframes/manage-shifts")">Shifts</a>
     <a href="@Url.Content("~/views/members")">Members</a>
     <a href="@Url.Content("~/wireframes/assign-shifts")">Schedule</a>
-    <div id="user">@Model.UserName</div>
+    <div id="user">@Model.UserName | <a href="@Url.Content("~/logout")">logout</a></div>
 </div>

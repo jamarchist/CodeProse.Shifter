@@ -2,7 +2,7 @@
 
 namespace CodeProse.Shifter.models
 {
-    public class IndexModel
+    public class HomeModel
     {
         public IList<string> WireframePages
         {

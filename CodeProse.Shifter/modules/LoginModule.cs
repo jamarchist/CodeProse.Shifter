@@ -17,7 +17,12 @@ namespace CodeProse.Shifter.modules
                 var model = this.Bind<LoginModel>();
                 var userId = users.Authenticate(model.Username, model.Password);
 
-                return this.LoginAndRedirect(userId, DateTime.Now.AddDays(7), "~/");
+                return this.LoginAndRedirect(userId, DateTime.Now.AddDays(7), "~/home");
+            };
+
+            Get["/logout"] = x =>
+            {
+                return this.LogoutAndRedirect("~/index");
             };
         }
     }

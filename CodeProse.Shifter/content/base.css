@@ -43,6 +43,37 @@ ul
     width: 250px;
     margin-right: 2em;
 }
+#logo
+{
+    text-align: center;
+    width: 400px;
+    margin: 40px 30px 0px 10px;
+    float: left;
+}
+#logo h1
+{
+    font-size: 5.0em;
+    background-color: #909090;
+    padding: 0;
+}
+#logo h2
+{
+    font-size: 1.8em;
+    color: #909090;
+    background-color: #000;
+}
+#signup
+{
+    border: 1px solid black;
+    width: 400px;
+    padding: 20px;
+}
+#signup input:not(.ui-button)
+{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+}
 .cart
 {
     margin: 0px 10px;
