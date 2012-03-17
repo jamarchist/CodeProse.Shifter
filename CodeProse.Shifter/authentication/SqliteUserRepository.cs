@@ -10,7 +10,12 @@ namespace CodeProse.Shifter.authentication
             using (var database = new Database())
             {
                 var user = database.Users.GetUserByUsernameAndPassword(username, password);
-                return Guid.Parse(user.Id);
+                if (user == null)
+                {
+                    return Guid.Empty;
+                }
+
+                return user.Id;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using CodeProse.Shifter.data;
+﻿using System;
+using CodeProse.Shifter.data;
 using CodeProse.Shifter.domain;
 using Nancy;
 using Nancy.ModelBinding;
@@ -13,6 +14,9 @@ namespace CodeProse.Shifter.modules
             Post["/"] = x =>
             {
                 var newMember = this.Bind<User>();
+                // TODO: Find somewhere else to put this
+                // ID creation logic for users
+                newMember.Id = Guid.NewGuid();
                 database.Users.AddNewUser(newMember);
                 return HttpStatusCode.Accepted;
             };

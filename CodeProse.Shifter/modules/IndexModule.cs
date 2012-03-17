@@ -3,7 +3,7 @@ using Nancy;
 
 namespace CodeProse.Shifter.modules
 {
-    public class IndexModule : NancyModule
+    public class IndexModule : SecureModule
     {
         public IndexModule()
         {
@@ -13,7 +13,9 @@ namespace CodeProse.Shifter.modules
 
         private Response Index()
         {
-            return View["index"];            
+            var model = new IndexModel();
+            model.UserName = Context.CurrentUser.UserName;
+            return View["index", model];            
         }
     }
 }

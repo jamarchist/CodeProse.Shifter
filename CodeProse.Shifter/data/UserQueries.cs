@@ -4,10 +4,14 @@ using System.Data;
 using System.Linq;
 using CodeProse.Shifter.domain;
 using Dapper;
-using DapperExtensions;
 
 namespace CodeProse.Shifter.data
 {
+    public class ShiftQueries
+    {
+        
+    }
+
     public class UserQueries
     {
         private readonly IDbConnection connection;
@@ -24,7 +28,7 @@ namespace CodeProse.Shifter.data
 
         public virtual User GetUserById(Guid identifier)
         {
-            return connection.Query<User>("SELECT * FROM Users WHERE Id = @Id LIMIT 1", new { Id = identifier.ToString() }).First();
+            return connection.Query<User>("SELECT * FROM Users WHERE Id = @Id LIMIT 1", new { Id = identifier }).First();
         }
 
         public virtual void AddNewUser(User newUser)
@@ -38,7 +42,7 @@ namespace CodeProse.Shifter.data
             return connection.Query<User>("SELECT * FROM Users").ToList();
         }
 
-        public virtual void DeleteUser(string identifier)
+        public virtual void DeleteUser(Guid identifier)
         {
             connection.Execute("DELETE FROM Users WHERE Id = @Id", new {Id = identifier});
         }

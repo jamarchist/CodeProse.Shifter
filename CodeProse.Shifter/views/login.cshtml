@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login to Shifter</title>
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/content/base.css")" />
+        <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/sunny/jquery-ui.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	</head>
+    <body>
+		<form action="login" method="POST">
+			<div class="stacked">
+				@if (Model.LoginAttemptFailed) {
+					<div class="login-error">Invalid username or password</div>
+				}        
+				<label for="Username">
+					Username</label>
+				<input type="text" name="Username" />
+				<label for="Password">
+					Password</label>
+				<input type="password" name="Password" />
+				<input type="submit" value="Login" />
+			</div>
+		</form>        
+        <script type="text/javascript">
+            $("input[type=submit],:button").button();
+        </script>
+    </body>
+</html>
