@@ -31,7 +31,12 @@ namespace CodeProse.Shifter.modules
                     return Context.GetRedirect("~/login?error=true");
                 }
 
-                return this.LoginAndRedirect(userId, DateTime.Now.AddDays(7), "~/");
+                return this.LoginAndRedirect(userId, DateTime.Now.AddDays(7), "~/home");
+            };
+
+            Get["/logout"] = x =>
+            {
+                return this.LogoutAndRedirect("~/index");
             };
         }
     }
