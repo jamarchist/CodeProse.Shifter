@@ -16,7 +16,20 @@ namespace CodeProse.Shifter.Tests
         }
 
         [Fact]
-        public void CanLogin()
+        public void CanGetLoginPageWithError()
+        {
+            var browser = new Browser(new BootStrapper());
+            var response = browser.Get("/login", with =>
+                                        {
+                                            with.HttpRequest();
+                                            with.Query("error", "true");
+                                        });
+
+            response.Body["div[class='login-error']"].ShouldExist();
+        }
+
+        [Fact]
+        public void CanLoginWithValidCredentials()
         {
             var browser = new Browser(new BootStrapper());
             var response = browser.Post("/login", with =>
@@ -26,8 +39,22 @@ namespace CodeProse.Shifter.Tests
                                            with.FormValue("Password", "demo");
                                        });
 
-            response.ShouldHaveRedirectedTo("/");
+            response.ShouldHaveRedirectedTo("/home");
             response.Body["h1"].ShouldContain("Welcome to Shifter");
+        }
+
+        [Fact]
+        public void CannotLoginWithInvalidCredentials()
+        {
+            var browser = new Browser(new BootStrapper());
+            var response = browser.Post("/login", with =>
+                                        {
+                                            with.HttpRequest();
+                                            with.FormValue("Username", "demo");
+                                            with.FormValue("Password", "wrongpassword");
+                                        });
+
+            response.ShouldHaveRedirectedTo("/login?error=true");
         }
     }
 }
