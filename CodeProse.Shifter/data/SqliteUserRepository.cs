@@ -8,7 +8,7 @@ namespace CodeProse.Shifter.data
         {
             using (var database = new Database())
             {
-                var user = database.Users.GetUserByUsernameAndPassword(username, password);
+                var user = database.GetUserByNameAndPassword(username, password);
                 if (user == null)
                 {
                     return Guid.Empty;

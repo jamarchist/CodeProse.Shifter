@@ -121,6 +121,7 @@
     <Compile Include="data\IUserRepository.cs" />
     <Compile Include="data\MapperFactory.cs" />
     <Compile Include="data\PluralizedAutoCustomMapper.cs" />
+    <Compile Include="data\QueryExtensions.cs" />
     <Compile Include="data\ShifterClassMapper.cs" />
     <Compile Include="data\SqliteDialect.cs" />
     <Compile Include="authentication\SqliteUserMapper.cs" />
@@ -131,7 +132,7 @@
     <Compile Include="data\DataSeedingExtensions.cs" />
     <Compile Include="data\IDatabase.cs" />
     <Compile Include="data\ConnectionExtensions.cs" />
-    <Compile Include="data\UserQueries.cs" />
+    <Compile Include="data\UserQueryExtensions.cs" />
     <Compile Include="domain\Shift.cs" />
     <Compile Include="domain\ScheduledShift.cs" />
     <Compile Include="domain\User.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="modules\ViewModule.cs" />
     <Compile Include="modules\WireframeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resources\ScheduledShiftsModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

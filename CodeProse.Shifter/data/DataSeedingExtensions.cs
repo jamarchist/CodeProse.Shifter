@@ -12,8 +12,6 @@ namespace CodeProse.Shifter.data
     {
         public static void InsertSeedData(this IDbConnection connection)
         {
-            const string insertIntoScheduledShifts = "INSERT INTO ScheduledShifts (Id, EndDate, EndHour, EndMinute, RepeatsOnSunday, StartDate, StartHour, StartMinute, RepeatsOnMonday, RepeatsOnTuesday, RepeatsOnWednesday, RepeatsOnThursday, RepeatsOnFriday, RepeatsOnSaturday) VALUES (@Id, @EndDate, @EndHour, @EndMinute, @RepeatsOnSunday, @StartDate, @StartHour, @StartMinute, 0, 0, 0, 0, 0, 0)";
-
             // Users
             connection.Execute("DELETE FROM Users;");
             connection.Insert(new List<User> {

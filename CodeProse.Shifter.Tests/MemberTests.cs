@@ -3,6 +3,7 @@ using System.Linq;
 using CodeProse.Shifter.domain;
 using Nancy;
 using Xunit;
+using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.Tests
 {
@@ -34,7 +35,7 @@ namespace CodeProse.Shifter.Tests
             };
 
             var response = Post("/members", newMember);
-            var allUsers = Query(db => db.Users.ListAllUsers());
+            var allUsers = Query(db => db.GetAll<User>());
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             Assert.Equal(3, allUsers.Count);
@@ -44,7 +45,7 @@ namespace CodeProse.Shifter.Tests
         public void CanDeleteMember()
         {
             var response = Delete("/members/Ryan-Gray");
-            var allUsers = Query(db => db.Users.ListAllUsers());
+            var allUsers = Query(db => db.GetAll<User>());
 
             Assert.Equal(HttpStatusCode.ResetContent, response.StatusCode);
             Assert.Equal(1, allUsers.Count);

@@ -6,6 +6,5 @@ namespace CodeProse.Shifter.data
     public interface IDatabase : IDisposable
     {
         IDbConnection Connection { get; }
-        UserQueries Users { get; }
     }
 }

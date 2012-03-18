@@ -24,11 +24,6 @@ namespace CodeProse.Shifter.data
             get { return connection; }
         }
 
-        public UserQueries Users
-        {
-            get { return new UserQueries(connection); }
-        }
-
         public void Dispose()
         {
             try

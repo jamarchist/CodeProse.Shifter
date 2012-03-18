@@ -4,6 +4,7 @@ using CodeProse.Shifter.modules;
 using Nancy;
 using Nancy.ModelBinding;
 using System.Linq;
+using CodeProse.Shifter.data;
 
 namespace CodeProse.Shifter.resources
 {
@@ -14,10 +15,7 @@ namespace CodeProse.Shifter.resources
             Post["/"] = x =>
             {
                 var newMember = this.Bind<User>();
-                // TODO: Find somewhere else to put this
-                // ID creation logic for users
-                newMember.Id = Guid.NewGuid();
-                ExecuteCommand(db => db.Users.AddNewUser(newMember));
+                ExecuteCommand(db => db.Insert(newMember));
 
                 var response = Response.AsJson(newMember);
                 response.StatusCode = HttpStatusCode.Created;
@@ -27,14 +25,14 @@ namespace CodeProse.Shifter.resources
 
             Get["/"] = x =>
             {
-                var members = Query(db => db.Users.ListAllUsers());
+                var members = Query(db => db.GetAll<User>());
                 return Response.AsJson(members);                       
             };
 
             Get[@"/(?<firstname>[\w]{1,20})(?<dash>[\-]{1})(?<lastname>[\w]{1,20})"] = x =>
             {
                 var member =
-                    Query(db => db.Users.ListAllUsers().FirstOrDefault(m => m.FirstName == x.firstname && m.LastName == x.lastname));
+                    Query(db => db.GetAll<User>().FirstOrDefault(m => m.FirstName == x.firstname && m.LastName == x.lastname));
 
                 if (member != null)
                 {
@@ -48,11 +46,11 @@ namespace CodeProse.Shifter.resources
             {
                 ExecuteCommand(db =>
                 {
-                    var member = db.Users.ListAllUsers().FirstOrDefault(m => m.FirstName == x.firstname && m.LastName == x.lastname);
+                    var member = db.GetAll<User>().FirstOrDefault(m => m.FirstName == x.firstname && m.LastName == x.lastname);
 
                     if (member != null)
                     {
-                        db.Users.DeleteUser(member.Id);
+                        db.Delete(member);
                     }
                 });
 
