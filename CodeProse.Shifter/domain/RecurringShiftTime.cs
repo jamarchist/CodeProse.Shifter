@@ -2,7 +2,7 @@
 
 namespace CodeProse.Shifter.domain
 {
-    public class ShiftTime
+    public class RecurringShiftTime
     {
         public virtual int StartHour { get; set; }
         public virtual int StartMinute { get; set; }

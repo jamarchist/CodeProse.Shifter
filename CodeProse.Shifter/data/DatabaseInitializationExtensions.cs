@@ -9,7 +9,7 @@ namespace CodeProse.Shifter.data
         public static void CreateTables(this IDbConnection connection)
         {
             connection.CreateUsersTable();
-            connection.CreateShiftTimesTable();
+            connection.CreateRecurringShiftTimesTable();
             connection.CreateAssignedShiftsTable();
         }
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Users
             connection.Execute(@"
 CREATE TABLE IF NOT EXISTS AssignedShifts
 (
-    ShiftTimeId GUID NULL
+    RecurringShiftTimeId GUID NULL
 ,   Day INTEGER NOT NULL
 ,   Month INTEGER NOT NULL
 ,   Year INTEGER NOT NULL
@@ -53,14 +53,14 @@ CREATE TABLE IF NOT EXISTS AssignedShifts
 ,   EndMinute INTEGER NOT NULL
 ,   UserId NVARCHAR(20) NOT NULL
 ,   PRIMARY KEY (Day, Month, Year, StartHour, StartMinute, EndHour, EndMinute, UserId)
-,   FOREIGN KEY (ShiftTimeId) REFERENCES ShiftTimes (Id)
+,   FOREIGN KEY (RecurringShiftTimeId) REFERENCES RecurringShiftTimes (Id)
 );");
         }
 
-        private static void CreateShiftTimesTable(this IDbConnection connection)
+        private static void CreateRecurringShiftTimesTable(this IDbConnection connection)
         {
             connection.Execute(@"
-CREATE TABLE IF NOT EXISTS ShiftTimes
+CREATE TABLE IF NOT EXISTS RecurringShiftTimes
 (
     Id GUID PRIMARY KEY NOT NULL
 ,   StartHour INTEGER NOT NULL

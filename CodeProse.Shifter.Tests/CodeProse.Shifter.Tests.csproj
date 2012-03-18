@@ -65,7 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginTests.cs" />
+    <Compile Include="MemberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestTests.cs" />
+    <Compile Include="TestResponseExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
