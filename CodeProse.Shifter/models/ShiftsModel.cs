@@ -19,7 +19,6 @@ namespace CodeProse.Shifter.models
         public override string ToString()
         {
             var daysPart = String.Join("", Days.Select(d => d.Abbreviation));
-
             return String.Format("{0} - {1} {2}", BeginTime, EndTime, daysPart);
         }
     }

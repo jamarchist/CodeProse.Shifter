@@ -130,6 +130,7 @@
     <Compile Include="modules\ShiftsModule.cs" />
     <Compile Include="partials\controls\WeekDayCheckBoxModel.cs" />
     <Compile Include="partials\controls\NumberPickerModel.cs" />
+    <Compile Include="utility\ConversionExtensions.cs" />
     <Compile Include="utility\Day.cs" />
     <Compile Include="utility\Days.cs" />
     <Compile Include="utility\ShifterBootStrapper.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="resources\RestModule.cs" />
     <Compile Include="resources\ScheduledShiftsModule.cs" />
     <Compile Include="utility\RoutingExpressions.cs" />
+    <Compile Include="utility\TimePartExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

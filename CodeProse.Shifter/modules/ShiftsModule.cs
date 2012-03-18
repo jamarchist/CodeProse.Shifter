@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using CodeProse.Shifter.domain;
 using CodeProse.Shifter.models;
 using CodeProse.Shifter.utility;
+using CodeProse.Shifter.data.queries;
+using System.Linq;
 
 namespace CodeProse.Shifter.modules
 {
@@ -10,22 +13,19 @@ namespace CodeProse.Shifter.modules
         {
             Get["/shifts"] = x =>
             {
-                var model = new ShiftsModel();
-                model.Shifts = new List<ShiftTimeModel>();
-                model.Shifts.Add(new ShiftTimeModel
-                                     {
-                                         BeginTime = new SimpleTime { Hour = 9 },
-                                         EndTime = new SimpleTime { Hour = 2, IsPM = true},
-                                         Days = new List<Day> { Days.Monday, Days.Wednesday, Days.Friday }
-                                     });
-                model.Shifts.Add(new ShiftTimeModel
+                var shiftsModel = new ShiftsModel { Shifts = new List<ShiftTimeModel>() };
+                var scheduledShifts = Query(db => db.GetAll<ScheduledShift>().OrderBy(s => s.StartHour));
+                foreach (var shift in scheduledShifts)
                 {
-                    BeginTime = new SimpleTime { Hour = 2, IsPM = true},
-                    EndTime = new SimpleTime { Hour = 5, IsPM = true },
-                    Days = new List<Day> { Days.Monday, Days.Wednesday, Days.Friday }
-                });
+                    shiftsModel.Shifts.Add(new ShiftTimeModel
+                    {
+                        BeginTime = new SimpleTime { Hour = shift.StartHour.AsShortHour(), Minute = shift.StartMinute.AsInt(), IsPM = shift.StartHour.IsPm() },
+                        EndTime = new SimpleTime { Hour = shift.EndHour.AsShortHour(), Minute = shift.EndMinute.AsInt(), IsPM = shift.EndHour.IsPm()},
+                        Days = Days.All.Where(d => shift.RepeatsOn(d.Name)).ToList()
+                    });
+                }
 
-                return View["shifts", model];
+                return View["shifts", shiftsModel];
             };
         }
     }

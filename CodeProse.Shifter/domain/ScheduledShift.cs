@@ -18,5 +18,11 @@ namespace CodeProse.Shifter.domain
         public virtual bool RepeatsOnSunday { get; set; }
         public virtual DateTime StartDate { get; set; }
         public virtual DateTime EndDate { get; set; }
+
+        public bool RepeatsOn(string day)
+        {
+            var repeatsOn = GetType().GetProperty(String.Format("RepeatsOn{0}", day));
+            return (bool) repeatsOn.GetValue(this, null);
+        }
     }
 }
