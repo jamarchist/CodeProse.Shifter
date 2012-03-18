@@ -1,6 +1,7 @@
 using System;
 using CodeProse.Shifter.authentication;
 using CodeProse.Shifter.data;
+using CodeProse.Shifter.utility;
 using Nancy.Responses;
 using Nancy.Testing;
 

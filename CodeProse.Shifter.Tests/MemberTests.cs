@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CodeProse.Shifter.data.queries;
 using CodeProse.Shifter.domain;
 using Nancy;
 using Xunit;

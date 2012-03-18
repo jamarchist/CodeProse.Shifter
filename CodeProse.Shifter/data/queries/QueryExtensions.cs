@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DapperExtensions;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.queries
 {
     public static class QueryExtensions
     {

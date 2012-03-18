@@ -1,6 +1,4 @@
-using DapperExtensions.Mapper;
-
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.mapping
 {
     public class ShifterClassMapper<T> : PluralizedAutoCustomMapper<T> where T: class
     {

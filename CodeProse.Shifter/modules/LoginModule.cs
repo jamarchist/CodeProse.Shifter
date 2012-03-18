@@ -6,12 +6,13 @@ using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Authentication.Forms;
 using Nancy.Extensions;
+using CodeProse.Shifter.data.queries;
 
 namespace CodeProse.Shifter.modules
 {
-    public class LoginModule : NancyModule
+    public class LoginModule : ShifterModule
     {
-        public LoginModule(IUserRepository users)
+        public LoginModule()
         {
             Get["/login"] = x =>
             {
@@ -24,7 +25,7 @@ namespace CodeProse.Shifter.modules
             Post["/login"] = x =>
             {
                 var model = this.Bind<LoginModel>();
-                var userId = users.Authenticate(model.Username, model.Password);
+                var userId = Query(db => db.GetUserId(model.Username, model.Password));
 
                 if (userId == Guid.Empty)
                 {

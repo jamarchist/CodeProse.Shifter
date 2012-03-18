@@ -1,4 +1,5 @@
 ﻿using CodeProse.Shifter.authentication;
+using CodeProse.Shifter.utility;
 using Xunit;
 using Nancy.Testing;
 

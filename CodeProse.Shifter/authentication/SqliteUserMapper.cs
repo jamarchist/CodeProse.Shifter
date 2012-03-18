@@ -1,4 +1,5 @@
 using System;
+using CodeProse.Shifter.data.queries;
 using CodeProse.Shifter.domain;
 using Nancy.Authentication.Forms;
 using Nancy.Security;

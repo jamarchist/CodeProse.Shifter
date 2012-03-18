@@ -2,12 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using DapperExtensions.Mapper;
+using CodeProse.Shifter.data;
+using CodeProse.Shifter.data.mapping;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.utility
 {
     public static class AssemblyScanner
     {
+        /// <summary>
+        /// Scans an assembly for Types in a 'domain' namespace associates them with a mapper
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
         public static IDictionary<Type, ICustomMapper> ClassMappers(this Assembly assembly)
         {
             var mappers = new Dictionary<Type, ICustomMapper>();

@@ -6,7 +6,7 @@ using Dapper;
 using DapperExtensions;
 using System.Linq;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.initialization
 {
     public static class DataSeedingExtensions
     {

@@ -1,9 +1,10 @@
 ﻿using System.Data.SQLite;
+using CodeProse.Shifter.authentication;
+using CodeProse.Shifter.data.initialization;
 using Nancy;
 using Nancy.Authentication.Forms;
-using CodeProse.Shifter.data;
 
-namespace CodeProse.Shifter.authentication
+namespace CodeProse.Shifter.utility
 {
     public class ShifterBootStrapper : DefaultNancyBootstrapper
     {
@@ -28,8 +29,6 @@ namespace CodeProse.Shifter.authentication
         {
             base.ConfigureRequestContainer(container);
             container.Register<IUserMapper, SqliteUserMapper>();
-            container.Register<IUserRepository, SqliteUserRepository>();
-            container.Register<IDatabase, Database>();
         }
 
         protected override void RequestStartup(TinyIoC.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)

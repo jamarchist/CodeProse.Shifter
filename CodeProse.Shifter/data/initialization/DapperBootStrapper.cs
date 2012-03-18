@@ -1,4 +1,6 @@
-namespace CodeProse.Shifter.data
+using CodeProse.Shifter.data.mapping;
+
+namespace CodeProse.Shifter.data.initialization
 {
     public static class DapperBootStrapper
     {

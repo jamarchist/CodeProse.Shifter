@@ -2,7 +2,7 @@
 using System.IO;
 using Dapper;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.initialization
 {
     public static class DatabaseInitializationExtensions
     {

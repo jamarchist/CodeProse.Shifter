@@ -1,6 +1,6 @@
 using System;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.mapping
 {
     public class PluralizedAutoCustomMapper<T> : CustomClassMapper<T> where T : class
     {

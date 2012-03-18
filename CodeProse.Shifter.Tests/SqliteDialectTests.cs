@@ -1,5 +1,7 @@
 ﻿using System;
 using CodeProse.Shifter.data;
+using CodeProse.Shifter.data.initialization;
+using CodeProse.Shifter.data.mapping;
 using CodeProse.Shifter.domain;
 using DapperExtensions.Sql;
 using Xunit;

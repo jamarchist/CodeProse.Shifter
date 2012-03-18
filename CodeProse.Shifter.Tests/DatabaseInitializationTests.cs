@@ -1,5 +1,6 @@
 ﻿using CodeProse.Shifter.authentication;
 using CodeProse.Shifter.data;
+using CodeProse.Shifter.data.initialization;
 using Xunit;
 
 namespace CodeProse.Shifter.Tests

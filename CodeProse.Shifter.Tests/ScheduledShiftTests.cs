@@ -23,14 +23,17 @@ namespace CodeProse.Shifter.Tests
             var anyShift = Query(db => db.Connection.GetList<ScheduledShift>().First());
             var shift = Get<ScheduledShift>(String.Format("/scheduled-shifts/{0}", anyShift.Id));
 
-            Assert.Equal(anyShift, shift);
+            Assert.Equal(anyShift.StartHour, shift.StartHour);
+            Assert.Equal(anyShift.StartMinute, shift.StartMinute);
+            Assert.Equal(anyShift.EndHour, shift.EndHour);
+            Assert.Equal(anyShift.EndMinute, shift.EndMinute);
         }
 
         [Fact]
         public void CanDeleteShift()
         {
             var anyShift = Query(db => db.Connection.GetList<ScheduledShift>().First());
-            var response = Delete(String.Format("/sheduled-shifts/{0}", anyShift.Id));
+            var response = Delete(String.Format("/scheduled-shifts/{0}", anyShift.Id));
 
             var deletedShift = Query(db => db.Connection.Get<ScheduledShift>(anyShift.Id));
 

@@ -1,7 +1,8 @@
+using CodeProse.Shifter.data.mapping;
 using CodeProse.Shifter.domain;
 using DapperExtensions.Mapper;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.mappers
 {
     public class UserMapper : CustomClassMapper<User>
     {

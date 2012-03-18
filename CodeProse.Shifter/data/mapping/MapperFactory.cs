@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using CodeProse.Shifter.utility;
 
-namespace CodeProse.Shifter.data
+namespace CodeProse.Shifter.data.mapping
 {
     public static class MapperFactory
     {
