@@ -51,7 +51,7 @@ namespace CodeProse.Shifter.Tests
             Assert.Equal(3, allShifts.Count());
 
             var newestShift = allShifts.Where(s => s.StartHour == 12 && s.StartMinute == 30 && s.EndHour == 4 && s.EndMinute == 30 && s.RepeatsOnSaturday).First();
-            Assert.Equal(response.Headers["Location"], newestShift.Id.ToString());
+            Assert.Equal(response.Headers["Location"], String.Format("//scheduled-shifts/{0}", newestShift.Id));
         }
     }
 }

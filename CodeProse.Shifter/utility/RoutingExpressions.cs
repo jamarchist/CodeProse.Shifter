@@ -11,6 +11,6 @@
         /// Routes a dash-separated name combination to variables
         /// 'firstname' and 'lastname'
         /// </summary>
-        public const string FirstNameLastName = @"/(?<firstname>[\w]{1,20})(?<dash>[\-]{1})(?<lastname>[\w]{1,20})";
+        public const string FirstNameLastName = @"/(?<firstname>[\w]{1,20})(?<dash>-)(?<lastname>[\w]{1,20})";
     }
 }
