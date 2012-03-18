@@ -1,3 +1,5 @@
+using System;
+using CodeProse.Shifter.data;
 using CodeProse.Shifter.models;
 using Nancy;
 
@@ -17,5 +19,30 @@ namespace CodeProse.Shifter.modules
         {
             model.UserName = Context.CurrentUser.UserName;
         }
+
+        protected virtual TResult ExecuteCommand<TResult>(Func<IDatabase, TResult> command)
+        {
+            using (var database = new Database())
+            {
+                return command(database);
+            }
+        }
+
+        protected virtual void ExecuteCommand(Action<IDatabase> command)
+        {
+            using (var database = new Database())
+            {
+                command(database);
+            }
+        }
+
+        protected virtual TEntity Query<TEntity>(Func<IDatabase, TEntity> query)
+        {
+            using (var database = new Database())
+            {
+                return query(database);
+            }
+        }
+
     }
 }

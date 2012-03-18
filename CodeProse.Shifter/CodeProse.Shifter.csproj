@@ -130,7 +130,7 @@
     <Compile Include="models\LoginModel.cs" />
     <Compile Include="models\MasterModel.cs" />
     <Compile Include="modules\HomeModule.cs" />
-    <Compile Include="modules\MembersDataModule.cs" />
+    <Compile Include="resources\MembersModule.cs" />
     <Compile Include="modules\LoginModule.cs" />
     <Compile Include="modules\IndexModule.cs" />
     <Compile Include="modules\SecureModule.cs" />

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CodeProse.Shifter.data;
 using CodeProse.Shifter.domain;
 using Nancy;
 using Xunit;
@@ -35,15 +34,21 @@ namespace CodeProse.Shifter.Tests
             };
 
             var response = Post("/members", newMember);
-
-            IList<User> allUsers = null;
-            using(var db = new Database())
-            {
-                allUsers = db.Users.ListAllUsers();
-            }
+            var allUsers = Query(db => db.Users.ListAllUsers());
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             Assert.Equal(3, allUsers.Count);
         }
+
+        [Fact]
+        public void CanDeleteMember()
+        {
+            var response = Delete("/members/Ryan-Gray");
+            var allUsers = Query(db => db.Users.ListAllUsers());
+
+            Assert.Equal(HttpStatusCode.ResetContent, response.StatusCode);
+            Assert.Equal(1, allUsers.Count);
+        }
+
     }
 }
