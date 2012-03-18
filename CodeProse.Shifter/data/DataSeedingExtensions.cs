@@ -23,7 +23,7 @@ namespace CodeProse.Shifter.data
             connection.Execute("DELETE FROM ScheduledShifts;");
             connection.Insert(new ScheduledShift
             {
-                Id = Guid.NewGuid(),
+                //Id = Guid.NewGuid(),
                 EndDate = new DateTime(2012, 12, 31),
                 EndHour = 20,
                 EndMinute = 20,
@@ -34,7 +34,7 @@ namespace CodeProse.Shifter.data
             });
             connection.Insert(new ScheduledShift
             {
-                Id = Guid.NewGuid(),
+                //Id = Guid.NewGuid(),
                 EndDate = new DateTime(2012, 12, 31),
                 EndHour = 19,
                 EndMinute = 10,

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Dynamic;
-using CodeProse.Shifter.authentication;
 using CodeProse.Shifter.data;
 using CodeProse.Shifter.models;
 using Nancy;

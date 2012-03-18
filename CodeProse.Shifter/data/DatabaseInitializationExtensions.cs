@@ -67,13 +67,13 @@ CREATE TABLE IF NOT EXISTS ScheduledShifts
 ,   StartMinute INTEGER NOT NULL
 ,   EndHour INTEGER NOT NULL
 ,   EndMinute INTEGER NOT NULL
-,   RepeatsOnMonday BIT NOT NULL DEFAULT 0
-,   RepeatsOnTuesday BIT NOT NULL DEFAULT 0
-,   RepeatsOnWednesday BIT NOT NULL DEFAULT 0
-,   RepeatsOnThursday BIT NOT NULL DEFAULT 0
-,   RepeatsOnFriday BIT NOT NULL DEFAULT 0
-,   RepeatsOnSaturday BIT NOT NULL DEFAULT 0
-,   RepeatsOnSunday BIT NOT NULL DEFAULT 0
+,   RepeatsOnMonday BIT NOT NULL
+,   RepeatsOnTuesday BIT NOT NULL
+,   RepeatsOnWednesday BIT NOT NULL
+,   RepeatsOnThursday BIT NOT NULL
+,   RepeatsOnFriday BIT NOT NULL
+,   RepeatsOnSaturday BIT NOT NULL
+,   RepeatsOnSunday BIT NOT NULL
 ,   StartDate DATETIME NOT NULL
 ,   EndDate DATETIME NOT NULL
 );");

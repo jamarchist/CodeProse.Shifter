@@ -1,9 +1,9 @@
 using CodeProse.Shifter.domain;
 using DapperExtensions.Mapper;
 
-namespace CodeProse.Shifter.authentication
+namespace CodeProse.Shifter.data
 {
-    public class UserMapper : PluralizedAutoClassMapper<User>
+    public class UserMapper : CustomClassMapper<User>
     {
         protected override void AutoMap()
         {
@@ -14,10 +14,5 @@ namespace CodeProse.Shifter.authentication
             Map(x => x.Password).Column("Password");
             Map(x => x.UserName).Column("UserName");
         }   
-
-        public void AutoMapPublic()
-        {
-            AutoMap();
-        }
     }
 }
