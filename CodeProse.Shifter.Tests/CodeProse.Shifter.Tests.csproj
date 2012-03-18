@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dapper.1.8\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DapperExtensions, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DapperExtensions.1.3.0\lib\net40\DapperExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\Nancy.Testing.0.9.0\lib\net40\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -64,10 +72,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseInitializationTests.cs" />
     <Compile Include="LoginTests.cs" />
     <Compile Include="MemberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestTests.cs" />
+    <Compile Include="ScheduledShiftTests.cs" />
+    <Compile Include="SqliteDialectTests.cs" />
     <Compile Include="TestResponseExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

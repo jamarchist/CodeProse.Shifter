@@ -124,7 +124,7 @@
     <Compile Include="data\ConnectionExtensions.cs" />
     <Compile Include="data\UserQueries.cs" />
     <Compile Include="domain\Shift.cs" />
-    <Compile Include="domain\RecurringShiftTime.cs" />
+    <Compile Include="domain\ScheduledShift.cs" />
     <Compile Include="domain\User.cs" />
     <Compile Include="models\HomeModel.cs" />
     <Compile Include="models\LoginModel.cs" />
