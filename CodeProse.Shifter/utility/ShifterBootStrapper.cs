@@ -8,6 +8,12 @@ namespace CodeProse.Shifter.utility
 {
     public class ShifterBootStrapper : DefaultNancyBootstrapper
     {
+        protected override void ConfigureRequestContainer(TinyIoC.TinyIoCContainer container, NancyContext context)
+        {
+            base.ConfigureRequestContainer(container, context);
+            container.Register<IUserMapper, SqliteUserMapper>();
+        }
+
         protected override void ConfigureApplicationContainer(TinyIoC.TinyIoCContainer container)
         {
             DapperBootStrapper.ConfigureDapper();
@@ -25,20 +31,15 @@ namespace CodeProse.Shifter.utility
 
         }
 
-        protected override void ConfigureRequestContainer(TinyIoC.TinyIoCContainer container)
-        {
-            base.ConfigureRequestContainer(container);
-            container.Register<IUserMapper, SqliteUserMapper>();
-        }
 
-        protected override void RequestStartup(TinyIoC.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
+        protected override void RequestStartup(TinyIoC.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {
             var formsAuthConfiguration =
                 new FormsAuthenticationConfiguration()
-                {
-                    RedirectUrl = "~/login",
-                    UserMapper = container.Resolve<IUserMapper>(),
-                };
+                    {
+                        RedirectUrl = "~/login",
+                        UserMapper = container.Resolve<IUserMapper>(),
+                    };
 
             FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
         }

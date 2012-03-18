@@ -1,5 +1,4 @@
 using System;
-using CodeProse.Shifter.data;
 using CodeProse.Shifter.data.queries;
 using CodeProse.Shifter.modules;
 using CodeProse.Shifter.utility;

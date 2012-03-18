@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
     <head>
         @RenderSection("Title")
         <link rel="stylesheet" type="text/css" href="@Url.Content("~/content/base.css")" />
@@ -7,9 +7,12 @@
         <link rel="stylesheet" type="text/css" href="@Url.Content("~/content/fullcalendar.css")" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="@Url.Content("~/content/string-extensions.js")"></script>
 		<script type="text/javascript" src="@Url.Content("~/content/fullcalendar.min.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/content/data-service.js")"></script>
-		<script type="text/javascript" src="@Url.Content("~/content/jquery.deletebutton.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/content/jquery.deletebutton.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/content/number-picker.js")"></script>
+		<script type="text/javascript" src="@Url.Content("~/content/time-selector.js")"></script>
     </head>
     <body>
         @Html.Partial("partials/topnav.cshtml", Model)

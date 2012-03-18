@@ -1,12 +1,9 @@
-﻿<div>
+﻿@using CodeProse.Shifter.partials.controls
+<div class="time-selector">
     <label>@Model</label>
-    <input type="text" class="hours" />
-    <input type="button" value="+" class="increment" />
-    <input type="button" value="-" class="decrement" />
-    <input type="text" class="minutes" />
-    <input type="button" value="+" class="increment" />
-    <input type="button" value="-" class="decrement" />
-    <select class="am-pm">
+    @Html.Partial("partials/controls/number-picker", new NumberPickerModel(1, 12))
+    @Html.Partial("partials/controls/number-picker", new NumberPickerModel(0, 59))
+    <select>
         <option>AM</option>
         <option>PM</option>
     </select>      

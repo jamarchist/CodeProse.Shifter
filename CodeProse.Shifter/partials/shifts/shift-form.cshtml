@@ -1,41 +1,37 @@
-﻿@using CodeProse.Shifter.partials.controls;
+﻿@using CodeProse.Shifter.partials.controls
+@using CodeProse.Shifter.utility
 
 <script type="text/javascript">
   $(document).ready(function () {
     $("#addShift").click(function () {
-      $("#shiftList").append("<li>" + formatShiftName() + "</li>");
+        var beginTime = $('.time-selector').first().time();
+        var endTime = $('.time-selector').first().next().time();
+
+        var selectedDays = '';
+        $('input[type=checkbox]:checked').each(function() { selectedDays += $(this).data('abbreviation'); });
+
+        var formattedTime = beginTime.formatted() + ' - ' + endTime.formatted() + ' ' + selectedDays;
+        $("#shiftList").append("<li>" + formattedTime + "</li>");
     });
 
     $("input[type=button]").button();
   });
-
-  function formatShiftName() {
-    return $("#beginTime").val() + "-" + $("#endTime").val() + " " +
-      ($("#monday").is(":checked") ? "M" : "") +
-      ($("#tuesday").is(":checked") ? "Tu" : "") +
-      ($("#wednesday").is(":checked") ? "W" : "") +
-      ($("#thursday").is(":checked") ? "Th" : "") +
-      ($("#friday").is(":checked") ? "F" : "") +
-      ($("#saturday").is(":checked") ? "Sa" : "") +
-      ($("#sunday").is(":checked") ? "Su" : "");
-  }
 </script>
 <fieldset>
   <legend>Add New Shift</legend>
   @Html.Partial("partials/controls/time-selector.cshtml", "Begin Time")
   @Html.Partial("partials/controls/time-selector.cshtml", "End Time")
-  @foreach(var day in new []{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"})
+  @foreach(var day in Days.All)
   {
-    @Html.Partial("partials/controls/labeled-checkbox.cshtml", new LabeledCheckBoxModel(day, true))
+    @Html.Partial("partials/controls/weekday-checkbox.cshtml", new WeekDayCheckBoxModel(day.Name, day.Abbreviation, true))
   }
-  <label for="beginDate">
-            Begin Date (optional)</label>
-        <input type="text" id="beginDate" />
-    <div>
-        <label for="endDate">
-            End Date (optional)</label>
-        <input type="text" id="endDate" /></div>
-    <div>
-        <input type="button" id="addShift" value="Add Shift" />
-    </div>
+  <label for="beginDate">Begin Date (optional)</label>
+  <input type="text" id="beginDate" />
+  <div>
+    <label for="endDate">End Date (optional)</label>
+    <input type="text" id="endDate" />
+  </div>
+  <div>
+    <input type="button" id="addShift" value="Add Shift" />
+  </div>
 </fieldset>
