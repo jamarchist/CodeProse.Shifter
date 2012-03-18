@@ -96,6 +96,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="partials\controls\labeled-checkbox.cshtml" />
+    <None Include="partials\controls\time-selector.cshtml" />
+    <None Include="partials\shifts\shift-form.cshtml" />
+    <None Include="partials\shifts\shift-list.cshtml" />
     <None Include="views\login.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -111,8 +115,12 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="views\shifts.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\ShiftsModel.cs" />
+    <Compile Include="modules\ShiftsModule.cs" />
+    <Compile Include="partials\controls\LabeledCheckBoxModel.cs" />
     <Compile Include="utility\ShifterBootStrapper.cs" />
     <Compile Include="utility\AssemblyScanner.cs" />
     <Compile Include="data\mapping\CustomClassMapper.cs" />

@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "layouts/base.cshtml";
+}
+
+@Html.Partial("partials/shifts/shift-list.cshtml", Model)
+@Html.Partial("partials/shifts/shift-form.cshtml", Model)
+
+@section Title {
+    <title>Shifts</title>
+}

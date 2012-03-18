@@ -1,0 +1,21 @@
+﻿@using CodeProse.Shifter.partials.controls;
+
+<fieldset>
+  <legend>Add New Shift</legend>
+  @Html.Partial("partials/controls/time-selector.cshtml", "Begin Time")
+  @Html.Partial("partials/controls/time-selector.cshtml", "End Time")
+  @foreach(var day in new []{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"})
+  {
+    @Html.Partial("partials/controls/labeled-checkbox.cshtml", new LabeledCheckBoxModel(day, true))
+  }
+  <label for="beginDate">
+            Begin Date (optional)</label>
+        <input type="text" id="beginDate" />
+    <div>
+        <label for="endDate">
+            End Date (optional)</label>
+        <input type="text" id="endDate" /></div>
+    <div>
+        <input type="button" id="addShift" value="Add Shift" />
+    </div>
+</fieldset>
