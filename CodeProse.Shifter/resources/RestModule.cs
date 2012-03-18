@@ -5,6 +5,7 @@ using CodeProse.Shifter.modules;
 using CodeProse.Shifter.utility;
 using Nancy;
 using Nancy.ModelBinding;
+using Nancy.Extensions;
 
 namespace CodeProse.Shifter.resources
 {
@@ -15,10 +16,13 @@ namespace CodeProse.Shifter.resources
             Post["/"] = x =>
             {
                 var newResource = this.Bind<TEntity>();
-                ExecuteCommand(db => db.Insert(newResource));
+                var id = ExecuteCommand(db => db.Insert(newResource));
 
                 var response = Response.AsJson(newResource);
                 response.StatusCode = HttpStatusCode.Created;
+
+                var resourcePath = (string)String.Format("~/{0}/{1}", path, id);
+                response.Headers.Add("Location", Context.ToFullPath(resourcePath));
 
                 return response; 
             };

@@ -49,6 +49,9 @@ namespace CodeProse.Shifter.Tests
 
             var allShifts = Query(db => db.Connection.GetList<ScheduledShift>().ToList());
             Assert.Equal(3, allShifts.Count());
+
+            var newestShift = allShifts.Where(s => s.StartHour == 12 && s.StartMinute == 30 && s.EndHour == 4 && s.EndMinute == 30 && s.RepeatsOnSaturday).First();
+            Assert.Equal(response.Headers["Location"], newestShift.Id.ToString());
         }
     }
 }

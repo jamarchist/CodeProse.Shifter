@@ -1,5 +1,25 @@
 ﻿@using CodeProse.Shifter.partials.controls;
 
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#addShift").click(function () {
+      $("#shiftList").append("<li>" + formatShiftName() + "</li>");
+    });
+
+    $("input[type=button]").button();
+  });
+
+  function formatShiftName() {
+    return $("#beginTime").val() + "-" + $("#endTime").val() + " " +
+      ($("#monday").is(":checked") ? "M" : "") +
+      ($("#tuesday").is(":checked") ? "Tu" : "") +
+      ($("#wednesday").is(":checked") ? "W" : "") +
+      ($("#thursday").is(":checked") ? "Th" : "") +
+      ($("#friday").is(":checked") ? "F" : "") +
+      ($("#saturday").is(":checked") ? "Sa" : "") +
+      ($("#sunday").is(":checked") ? "Su" : "");
+  }
+</script>
 <fieldset>
   <legend>Add New Shift</legend>
   @Html.Partial("partials/controls/time-selector.cshtml", "Begin Time")
