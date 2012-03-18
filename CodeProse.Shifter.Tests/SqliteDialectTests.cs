@@ -1,5 +1,6 @@
 ﻿using System;
 using CodeProse.Shifter.authentication;
+using CodeProse.Shifter.data;
 using CodeProse.Shifter.domain;
 using DapperExtensions.Mapper;
 using DapperExtensions.Sql;

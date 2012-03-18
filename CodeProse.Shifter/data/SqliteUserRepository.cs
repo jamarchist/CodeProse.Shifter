@@ -1,7 +1,6 @@
 using System;
-using CodeProse.Shifter.data;
 
-namespace CodeProse.Shifter.authentication
+namespace CodeProse.Shifter.data
 {
     public class SqliteUserRepository : IUserRepository
     {

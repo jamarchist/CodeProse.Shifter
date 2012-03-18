@@ -9,7 +9,7 @@ namespace CodeProse.Shifter.Tests
         [Fact]
         public void CanGetLoginPage()
         {
-            var browser = new Browser(new BootStrapper());
+            var browser = new Browser(new ShifterBootStrapper());
             var response = browser.Get("/login", with => with.HttpRequest());
 
             response.Body["form[action='login']"].ShouldExist();
@@ -18,7 +18,7 @@ namespace CodeProse.Shifter.Tests
         [Fact]
         public void CanGetLoginPageWithError()
         {
-            var browser = new Browser(new BootStrapper());
+            var browser = new Browser(new ShifterBootStrapper());
             var response = browser.Get("/login", with =>
                                         {
                                             with.HttpRequest();
@@ -31,7 +31,7 @@ namespace CodeProse.Shifter.Tests
         [Fact]
         public void CanLoginWithValidCredentials()
         {
-            var browser = new Browser(new BootStrapper());
+            var browser = new Browser(new ShifterBootStrapper());
             var response = browser.Post("/login", with =>
                                        {
                                            with.HttpRequest();
@@ -46,7 +46,7 @@ namespace CodeProse.Shifter.Tests
         [Fact]
         public void CannotLoginWithInvalidCredentials()
         {
-            var browser = new Browser(new BootStrapper());
+            var browser = new Browser(new ShifterBootStrapper());
             var response = browser.Post("/login", with =>
                                         {
                                             with.HttpRequest();

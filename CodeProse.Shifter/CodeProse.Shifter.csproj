@@ -113,10 +113,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="authentication\BootStrapper.cs" />
-    <Compile Include="authentication\IUserRepository.cs" />
+    <Compile Include="authentication\ShifterBootStrapper.cs" />
+    <Compile Include="data\DapperBootStrapper.cs" />
+    <Compile Include="data\IUserRepository.cs" />
+    <Compile Include="data\ShifterAutoClassMapper.cs" />
+    <Compile Include="data\SqliteDialect.cs" />
     <Compile Include="authentication\SqliteUserMapper.cs" />
-    <Compile Include="authentication\SqliteUserRepository.cs" />
+    <Compile Include="data\SqliteUserRepository.cs" />
+    <Compile Include="authentication\UserMapper.cs" />
     <Compile Include="data\Database.cs" />
     <Compile Include="data\DatabaseInitializationExtensions.cs" />
     <Compile Include="data\DataSeedingExtensions.cs" />

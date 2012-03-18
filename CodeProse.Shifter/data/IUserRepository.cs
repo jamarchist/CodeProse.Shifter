@@ -1,6 +1,6 @@
 using System;
 
-namespace CodeProse.Shifter.authentication
+namespace CodeProse.Shifter.data
 {
     public interface IUserRepository
     {

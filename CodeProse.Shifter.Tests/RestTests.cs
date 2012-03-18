@@ -8,7 +8,7 @@ namespace CodeProse.Shifter.Tests
 {
     public abstract class RestTests
     {
-        private readonly Browser browser = new Browser(new BootStrapper());
+        private readonly Browser browser = new Browser(new ShifterBootStrapper());
 
         protected virtual TEntity Get<TEntity>(string resource)
         {
