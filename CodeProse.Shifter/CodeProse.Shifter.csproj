@@ -168,6 +168,7 @@
     <Compile Include="resources\RestModule.cs" />
     <Compile Include="resources\ScheduledShiftsModule.cs" />
     <Compile Include="utility\RoutingExpressions.cs" />
+    <Compile Include="utility\ShifterViewRenderer.cs" />
     <Compile Include="utility\TimePartExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

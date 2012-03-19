@@ -25,7 +25,7 @@ namespace CodeProse.Shifter.modules
                     });
                 }
 
-                return View["shifts", shiftsModel];
+                return ShifterView["shifts", shiftsModel];
             };
         }
     }

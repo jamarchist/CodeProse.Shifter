@@ -1,6 +1,7 @@
 using System;
 using CodeProse.Shifter.data;
 using CodeProse.Shifter.models;
+using CodeProse.Shifter.utility;
 using Nancy;
 
 namespace CodeProse.Shifter.modules
@@ -44,5 +45,9 @@ namespace CodeProse.Shifter.modules
             }
         }
 
+        protected ShifterViewRenderer ShifterView
+        {
+            get { return new ShifterViewRenderer(this); }
+        }
     }
 }
