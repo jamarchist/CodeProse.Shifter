@@ -13,4 +13,15 @@
         }
         return str;
     };
+
+    // TODO: Move this
+    Date.prototype.toNumericString = function() {
+        var date = this;
+
+        var year = date.getFullYear().toString();
+        var month = (date.getMonth() + 1).toString().padLeft('0', 2);
+        var day = date.getDate().toString().padLeft('0', 2);
+
+        return year + '-' + month + '-' + day;
+    };
 })();

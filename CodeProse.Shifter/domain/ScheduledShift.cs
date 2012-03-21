@@ -24,5 +24,10 @@ namespace CodeProse.Shifter.domain
             var repeatsOn = GetType().GetProperty(String.Format("RepeatsOn{0}", day));
             return (bool) repeatsOn.GetValue(this, null);
         }
+
+        public bool RepeatsOn(DayOfWeek day)
+        {
+            return RepeatsOn(day.ToString());
+        }
     }
 }

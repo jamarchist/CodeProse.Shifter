@@ -37,17 +37,22 @@
             events: function (start, end, callback) {
                 var events = [];
 
-                var shift = {
-                    date: start,
-                    time: "9am-2pm"
-                }; // get from service
-
                 while (start < end) {
-                    events.push({
-                        title: shift.time,
-                        start: shift.date.toString(),
-                        url: "view-shift.htm?d=" + (shift.date.getMonth() + 1) + "-" + shift.date.getDate() + "-" + (shift.date.getYear() + 1900) + "&s=" + shift.time
-                    });
+					var scheduledShifts = [];
+					CodeProse.Shifter.Data.get('/scheduled-shifts/' + start.toNumericString() +'/', function(data) {
+						scheduledShifts = data;
+					});                    
+
+                    for (var shiftIndex = 0; shiftIndex < scheduledShifts.length; shiftIndex++) {
+                        var shift = scheduledShifts[shiftIndex];
+                        var shiftTitle = shift.StartHour.toString() + '-' + shift.EndHour.toString();
+
+						events.push({
+							title: shiftTitle,
+							start: start.toString(),
+							url: "view-shift.htm?d=" + (start.getMonth() + 1) + "-" + start.getDate() + "-" + (start.getYear() + 1900) + "&s=" + shiftTitle
+						});                        
+                    }
 
                     start.setDate(start.getDate() + 1);
                 }

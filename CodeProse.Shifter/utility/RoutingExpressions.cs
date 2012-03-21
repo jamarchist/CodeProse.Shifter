@@ -12,5 +12,10 @@
         /// 'firstname' and 'lastname'
         /// </summary>
         public const string FirstNameLastName = @"/(?<firstname>[\w]{1,20})(?<dash>-)(?<lastname>[\w]{1,20})";
+
+        /// <summary>
+        /// Routes a date in yyyy-MM-dd format to variables 'year', 'month', and 'day'
+        /// </summary>
+        public const string Date = @"/(?<year>[\d]{4})(?<dasha>-)(?<month>[\d]{2})(?<dashb>-)(?<day>[\d]{2})";
     }
 }
