@@ -9,12 +9,21 @@
             var incrementor = number.next();
             var decrementor = incrementor.next();
 
+            var setNumber = function (newVal) {
+                var newDisplayValue = newVal.toString().padLeft('0', 2);
+                number.val(newDisplayValue);
+            };
+
+            var getNumber = function () {
+                return parseInt(number.val().unPadLeft('0', 1));
+            };
+
             if (number.val() === '') {
-                number.val(min);
+                setNumber(min);
             }
 
             incrementor.click(function () {
-                var current = parseInt(number.val());
+                var current = getNumber();
 
                 if (current === max) {
                     current = min;
@@ -22,11 +31,11 @@
                     current++;
                 }
 
-                number.val(current);
+                setNumber(current);
             });
 
             decrementor.click(function () {
-                var current = parseInt(number.val());
+                var current = getNumber();
 
                 if (current === min) {
                     current = max;
@@ -34,7 +43,7 @@
                     current--;
                 }
 
-                number.val(current);
+                setNumber(current);
             });
         });
     });
