@@ -39,7 +39,7 @@
 
                 while (start < end) {
 					var scheduledShifts = [];
-					CodeProse.Shifter.Data.get('/scheduled-shifts/' + start.toNumericString() +'/', function(data) {
+					CodeProse.Shifter.Resources.get('/scheduled-shifts/' + start.toNumericString() +'/', function(data) {
 						scheduledShifts = data;
 					});                    
 

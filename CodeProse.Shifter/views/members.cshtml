@@ -10,12 +10,12 @@
 					confirm: "Are you sure you want to delete this member?",
 					label: "Delete member",
 					click: function() {
-						CodeProse.Shifter.Data.deleteMember(currentMember.FirstName + "-" + currentMember.LastName);
+						CodeProse.Shifter.Resources.del("/members/" + currentMember.FirstName + "-" + currentMember.LastName);
 					}
 				}).appendTo("#member-list");			
         };
 
-        CodeProse.Shifter.Data.getMembers(function (data) {
+        CodeProse.Shifter.Resources.get("/members", function (data) {
             for (var i = 0; i < data.length; i++) {
                 var currentMember = data[i];
                 addMemberToList(currentMember);
@@ -30,7 +30,7 @@
                 UserName: $("input[name*='username']").first().val()
             };
 
-            CodeProse.Shifter.Data.addMember(newMember);
+            CodeProse.Shifter.Resources.add("/members/", newMember);
             addMemberToList(newMember);
         });
 
